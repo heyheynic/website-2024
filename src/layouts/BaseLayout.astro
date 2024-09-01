@@ -1,0 +1,59 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import "../styles/styles.css";
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header>
+      <Header />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <Footer />
+    </footer>
+  </body>
+
+  <style>
+    body {
+      display: grid;
+      grid-auto-rows: min-content auto min-content;
+      grid-template-columns:
+        [full-start] 1fr
+        [content] min(65ch, 100% - 2rem)
+        1fr [full-end];
+      gap: 1rem;
+
+      > * {
+        grid-column: full;
+        display: grid;
+        grid-template-columns: subgrid;
+
+        > * {
+          grid-column: content;
+        }
+      }
+    }
+
+    
+    header {
+      border-bottom: solid var(--dark) 2px;
+    }
+
+    footer {
+      border-top: solid var(--dark) 2px;
+    }
+  </style>
+</html>

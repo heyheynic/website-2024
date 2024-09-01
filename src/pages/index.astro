@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Nicole Heywood";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section>
+    <div class="title">
+      <h1>Nicole <br /> Heywood</h1>
+      <blockquote>
+        Certified nerd, CSS enthusiast, book worm and bird lover
+      </blockquote>
+    </div>
+
+    <img 
+      src="/img/ev-me-pic.png"
+      alt="image of the creator"
+      class="index-me"
+    />
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+    
+    align-items: center;
+    gap: 4em;
+
+    h1 {
+      line-height: 1;
+      position: relative;
+    }
+    h1::before {
+      content: "";
+      background-color: var(--accent);
+      width: 30rem;
+      height: 14rem;
+      position: absolute;
+      z-index: -1;
+      rotate: -26deg;
+      top: 1rem;
+      left: -18rem;
+    }
+
+    .index-me {
+      grid-row: 1;
+      grid-column: 2;
+      width: 200px;
+      border-radius: 50%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+</style>

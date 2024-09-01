@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+
+const pageTitle = "About me"
+---
+
+<BaseLayout pageTitle={pageTitle}>
+<h1>About me</h1>
+<img src="/img/profile-pic.webp" alt="image of the creator" class="about-me">
+</BaseLayout>
+
+<style>
+.index-me {
+	width: 300px;
+	border-radius: 50%;
+	aspect-ratio: 1;
+object-fit: cover;
+}
+
+</style>
