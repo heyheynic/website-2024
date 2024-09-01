@@ -1,15 +1,24 @@
 ---
-
+import GithubIcon from "../components/GithubIcon.astro";
+import LinkedinIcon from "../components/LinkedinIcon.astro";
 ---
 
-<footer>
-  <a href="/">link</a>
-  <a href="/">link</a>
-</footer>
+<section class="footer">
+  <a href="/"> <GithubIcon /></a>
+
+  <a href="/"> <LinkedinIcon /></a>
+</section>
 
 <style>
-  footer {
+  .footer {
     display: flex;
-
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 3rem;
+    svg{
+width: ;
+    }
   }
+
+
 </style>
