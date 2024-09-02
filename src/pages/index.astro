@@ -1,31 +1,35 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import PrimaryBtn from "../components/PrimaryBtn.astro";
 const pageTitle = "Nicole Heywood";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <section>
+  <article class="main-hero">
     <div class="title">
       <h1>Nicole <br /> Heywood</h1>
       <blockquote>
         Certified nerd, CSS enthusiast, book worm and bird lover
       </blockquote>
     </div>
-
-    <img 
-      src="/img/me-intro.png"
-      alt="image of the creator"
-      class="index-me"
-    />
+    <img src="/img/me-intro.png" alt="image of the creator" class="index-me" />
+  </article>
+  <section class="buttons">
+    
+    <a href="/portfolio">
+      <PrimaryBtn btnText="Portfolio" />
+    </a>
+    <a href="Contact">
+      <PrimaryBtn btnText="Contact" />
+    </a>
   </section>
 </BaseLayout>
 
 <style>
-  section {
+  .main-hero {
     display: grid;
     grid-template-columns: 1fr;
-    
+
     align-items: center;
     gap: 4em;
 
@@ -52,7 +56,13 @@ const pageTitle = "Nicole Heywood";
       border-radius: 50%;
       aspect-ratio: 1;
       object-fit: cover;
-;
     }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    gap: 2em;
   }
 </style>

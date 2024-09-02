@@ -47,13 +47,14 @@ const { pageTitle } = Astro.props;
       }
     }
 
-    
     header {
       border-bottom: solid var(--dark) 3px;
     }
 
     footer {
-      border-top: solid var(--dark) 3px;
+      > * {
+        border-top: solid var(--dark) 3px;
+      }
     }
   </style>
 </html>
