@@ -44,6 +44,16 @@
 
   a {
     text-decoration: none;
-  }
+    :hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: var(--dark);
+      text-decoration-thickness: 0.3ex;
+      text-underline-offset: 0.4ex;
 
+    }
+    :active {
+        color: var(--dark);
+      }
+  }
 </style>

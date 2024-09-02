@@ -4,21 +4,32 @@ import LinkedinIcon from "../components/LinkedinIcon.astro";
 ---
 
 <section class="footer">
-  <a href="/"> <GithubIcon /></a>
+  <a href="https://github.com/heyheynic" target=”_blank”> <GithubIcon /></a>
 
-  <a href="/"> <LinkedinIcon /></a>
+  <a href="https://www.linkedin.com/in/heyheywood/" target=”_blank”> <LinkedinIcon /></a>
 </section>
 
 <style>
   .footer {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: clamp(1.125rem, 0.212rem + 4.5652vw, 3.75rem);
     padding: 1rem 3rem;
-    svg{
-width: ;
-    }
-  }
 
+    svg {
+      border-radius: 50%;
+      width: clamp(2.125rem, 1.8207rem + 1.5217vw, 3rem);
+    }
+
+ a:hover{
+  color: var(--accent);
+  transition: scale 150ms ease-out;
+  scale: 1.1;
+ }
+
+ a {
+  transition: 200ms ease-in;
+ }
+  }
 
 </style>
