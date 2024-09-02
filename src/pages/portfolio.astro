@@ -1,21 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PortfolioCard from "../components/PortfolioCard.astro";
 
+const pageTitle = "Portfolio";
+const imgSrc = `portfolio-content/np.webp`;
 
-const pageTitle = "Portfolio"
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-<h1>Portfolio</h1>
-
+  <h1>Portfolio</h1>
+  <PortfolioCard imgSrc={`portfolio-content/np.webp`} />
 </BaseLayout>
 
 <style>
-.about-me {
-	width: 300px;
-	border-radius: 50%;
-	aspect-ratio: 1;
-object-fit: cover;
-}
-
+  .about-me {
+    width: 300px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
 </style>

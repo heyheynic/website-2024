@@ -1,0 +1,73 @@
+---
+import PrimaryBtn from "./PrimaryBtn.astro";
+// const imgSrc = Astro.props;
+---
+
+<article class="project">
+  <div class="project__image">
+    <!-- <img src={imgSrc} alt="" class="project__img" /> -->
+  </div>
+  <section class="project__content flow">
+    <h2 class="project__title">Titel</h2>
+    <p class="project__description">
+      Body of text Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Tenetur maiores excepturi repudiandae fugit nulla maxime assumenda
+      voluptatibus, corrupti asperiores aut error dicta id officia voluptatem!
+
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem perspiciatis ducimus, accusantium maiores quas obcaecati neque nostrum quibusdam, velit unde molestias ipsam tempora fugit nam cupiditate suscipit dignissimos doloremque asperiores.</p>
+    <h3>titel till h3</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus nobis suscipit officia, assumenda mollitia neque distinctio? Ad ea veniam nihil quibusdam quidem, minus repudiandae sint quod quam sequi sit.</p>
+    <a href="/" class="project__button">
+      <PrimaryBtn btnText="See more" />
+    </a>
+  </section>
+</article>
+
+<style>
+  .project {
+    grid-column: breakout;
+    display: grid;
+    grid: 1fr auto/ 1fr 1fr;
+    border: 1px solid var(--dark);
+    container: article / inline-size;
+
+    .project__image {
+      grid-row: 1;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .project__content {
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+    
+
+    .project__button {
+      place-self: end;
+      padding: 1em;
+    }
+}
+  }
+  @container article (width < 600px) {
+    .project {
+      grid-column: 1/-1;
+      grid: 1fr 1fr/ 1fr;
+      outline: solid green 5px;
+
+      .project__image {
+        grid-column: 1/-1;
+      }
+      .project__content {
+        grid-row: 2;
+        grid-column: 1/-1;
+
+      }
+    }
+  }
+</style>

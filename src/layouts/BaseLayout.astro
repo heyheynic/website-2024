@@ -31,8 +31,9 @@ const { pageTitle } = Astro.props;
       display: grid;
       grid-auto-rows: min-content auto min-content;
       grid-template-columns:
-        [full-start] 1fr
+        [full-start] 1fr [breakout-start] 1fr
         [content] min(65ch, 100% - 2rem)
+        1fr [breakout-end]
         1fr [full-end];
       gap: 1rem;
 
@@ -46,7 +47,6 @@ const { pageTitle } = Astro.props;
         }
       }
     }
-
     header {
       border-bottom: solid var(--dark) 3px;
     }
@@ -56,5 +56,6 @@ const { pageTitle } = Astro.props;
         border-top: solid var(--dark) 3px;
       }
     }
+    
   </style>
 </html>
