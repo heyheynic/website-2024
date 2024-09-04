@@ -16,6 +16,7 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
+    <div class="body__wrapper">
     <header>
       <Header />
     </header>
@@ -25,9 +26,12 @@ const { pageTitle } = Astro.props;
     <footer>
       <Footer />
     </footer>
+  </div>
   </body>
 
   <style>
+
+ 
     header {
       border-bottom: solid var(--dark) 3px;
     }

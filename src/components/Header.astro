@@ -2,7 +2,7 @@
 
 ---
 
-<header>
+<div class="header__wrapper">
   <a href="/">
     <img src="/favicon.svg" alt="website logo" class="logo" />
   </a>
@@ -23,14 +23,14 @@
       </a>
     </ul>
   </nav>
-</header>
+</div>
 
 <style>
-  header {
+  .header__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    container: burger / inline-size;
 
     .logo {
       width: min(4rem, 5rem);
@@ -51,10 +51,19 @@
       text-decoration-color: var(--dark);
       text-decoration-thickness: 0.3ex;
       text-underline-offset: 0.4ex;
-
     }
     :active {
-        color: var(--dark);
+      color: var(--dark);
+    }
+  }
+
+  @container burger (width < 500px) {
+    nav {
+      background-color: red;
+
+      ul {
+        display: none;
       }
+    }
   }
 </style>
