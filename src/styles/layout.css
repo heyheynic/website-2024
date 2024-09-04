@@ -1,6 +1,5 @@
 body {
   --gap: clamp(1rem, 6vw, 3rem);
-  --full: minmax(var(--gap), 1fr);
   --content: min(65ch, 100% - 2rem);
   --popout: minmax(0, 2rem);
   --feature: minmax(0, 5rem);
@@ -8,10 +7,10 @@ body {
   display: grid;
   grid-auto-rows: min-content auto min-content;
   grid-template-columns:
-    [full-start] var(--full) [breakout-start] var(--popout)
+    [full-start] 1fr [breakout-start] var(--popout)
     [content] var(--content)
     var(--popout) [breakout-end]
-    var(--full) [full-end];
+    1fr [full-end];
   gap: var(--gap);
 
   /* display: grid;

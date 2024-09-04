@@ -13,20 +13,18 @@ const pageTitle = "Nicole Heywood";
           Certified nerd, CSS enthusiast, book worm and bird lover
         </blockquote>
       </div>
-      <img
-        src="/img/me-intro.png"
-        alt="image of the creator"
-        class="index-img"
-      />
+      <div class="img-container index-img">
+        <img src="/img/me-intro.png" alt="image of the creator" />
+      </div>
     </article>
-    <!-- <section class="buttons">
+    <section class="buttons">
       <a href="/portfolio">
         <PrimaryBtn btnText="Portfolio" />
       </a>
       <a href="Contact">
         <PrimaryBtn btnText="Contact" />
       </a>
-    </section> -->
+    </section>
   </div>
 </BaseLayout>
 
@@ -43,8 +41,8 @@ const pageTitle = "Nicole Heywood";
     gap: 1em;
     align-items: center;
 
-
     h1 {
+      grid-row: 1;
       line-height: 1;
       position: relative;
     }
@@ -61,12 +59,33 @@ const pageTitle = "Nicole Heywood";
     }
 
     .index-img {
-      grid-area: 1 / 2 / 1 / 2;
-      width: clamp(10rem, 8.2609rem + 8.6957vw, 15rem);
-      border-radius: 50%;
+      grid-row: 1;
+      grid-column: 2;
       place-self: center end;
-      aspect-ratio: 1;
-      object-fit: cover;
+
+      img {
+        width: clamp(10rem, 8.2609rem + 8.6957vw, 15rem);
+        border-radius: 50%;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    }
+
+    @container index-wrapper (width < 500px) {
+      .main-hero {
+
+        display: grid;
+        grid: auto / 1fr;
+      }
+      .title {
+        grid-row: 1;
+        place-self: center;
+      }
+      .index-img {
+        grid-row: 2;
+        grid-column: 1;
+        place-self: center;
+      }
     }
   }
 
@@ -79,24 +98,6 @@ const pageTitle = "Nicole Heywood";
     gap: 2em;
   }
 
-  @container index-wrapper (width < 450px) {
-      .main-hero {
-        display: grid;
-        grid: 1fr 1fr / 1fr;
-      }
-      .title {
-        justify-items: center;
-        place-content: center;
-        align-items: center;
-        text-align:;
-        color: blue;
-      }
-      .index-me {
-        grid-column: 1;
-        grid-row: 2;
-        background-color: red;
-      }
-    }
   /* 
   @container main-hero (width < 400px) {
     .index-me {
