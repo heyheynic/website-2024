@@ -1,0 +1,37 @@
+body {
+  --gap: clamp(1rem, 6vw, 3rem);
+  --full: minmax(var(--gap), 1fr);
+  --content: min(65ch, 100% - 2rem);
+  --popout: minmax(0, 2rem);
+  --feature: minmax(0, 5rem);
+
+  display: grid;
+  grid-auto-rows: min-content auto min-content;
+  grid-template-columns:
+    [full-start] var(--full) [breakout-start] var(--popout)
+    [content] var(--content)
+    var(--popout) [breakout-end]
+    var(--full) [full-end];
+  gap: var(--gap);
+
+  /* display: grid;
+  grid-template-columns:
+    [full-start] var(--full)
+    [feature-start] var(--feature)
+    [popout-start] var(--popout)
+    [content-start] var(--content) [content-end]
+    var(--popout) [popout-end]
+    var(--feature) [feature-end]
+    var(--full) [full-end];
+} */
+
+  > * {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    > * {
+      grid-column: content;
+    }
+  }
+}
