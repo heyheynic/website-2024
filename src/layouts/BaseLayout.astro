@@ -2,8 +2,6 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-import "../styles/style.css";
-import "../styles/layout.css";
 const { pageTitle } = Astro.props;
 ---
 
@@ -16,22 +14,16 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <div class="body__wrapper">
-    <header>
-      <Header />
-    </header>
+    <Header />
+
     <main>
       <slot />
     </main>
-    <footer>
-      <Footer />
-    </footer>
-  </div>
+
+    <Footer />
   </body>
 
-  <style>
-
- 
+  <!-- <style>
     header {
       border-bottom: solid var(--dark) 3px;
     }
@@ -40,6 +32,6 @@ const { pageTitle } = Astro.props;
       > * {
         border-top: solid var(--dark) 3px;
       }
-    }
-  </style>
+    } 
+  </style> -->
 </html>

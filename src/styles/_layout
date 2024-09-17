@@ -1,4 +1,4 @@
-html {
+/* html {
   background-color: red;
 }
 
@@ -27,7 +27,7 @@ html {
       grid-column: content;
     }
   }
-}
+} */
 /* display: grid;
   grid-auto-rows: min-content auto min-content;
   gap: var(--gap); */

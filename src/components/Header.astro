@@ -2,7 +2,7 @@
 
 ---
 
-<div class="header__wrapper">
+<header>
   <a href="/">
     <img src="/favicon.svg" alt="website logo" class="logo" />
   </a>
@@ -19,17 +19,18 @@
         <li>About</li>
       </a>
       <a href="contact">
-        <li>contact</li>
+        <li>Contact</li>
       </a>
     </ul>
   </nav>
-</div>
+</header>
 
 <style>
-  .header__wrapper {
+  header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 4em;
     container: burger / inline-size;
 
     .logo {
@@ -40,7 +41,6 @@
   ul {
     display: flex;
     gap: 1em;
-    padding: 1em;
   }
 
   a {
