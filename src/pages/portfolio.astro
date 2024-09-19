@@ -3,20 +3,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PortfolioCard from "../components/PortfolioCard.astro";
 
 const pageTitle = "Portfolio";
-const imgSrc = `portfolio-content/np.webp`;
 
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <h1>Portfolio</h1>
-  <PortfolioCard imgSrc={`portfolio-content/np.webp`} />
+<div class="wrapper">
+  <PortfolioCard img="np.webp" altText="text" />
+  <PortfolioCard img="np.webp" altText="text" />
+</div>
 </BaseLayout>
 
 <style>
-  .about-me {
-    width: 300px;
-    border-radius: 50%;
-    aspect-ratio: 1;
-    object-fit: cover;
-  }
+ .wrapper {
+  padding: 3em 0 5em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+ }
 </style>

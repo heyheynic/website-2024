@@ -1,11 +1,11 @@
 ---
-const {btnText} = Astro.props;
+const { btnText, src } = Astro.props;
 ---
 
-<button>{btnText}</button>
+<a href=`${src}`>{btnText}</a>
 
 <style>
-  button {
+  a {
     background-color: var(--accent);
     border: none;
     padding: 0.5em 2em;
@@ -13,11 +13,12 @@ const {btnText} = Astro.props;
     letter-spacing: 0.5px;
     box-shadow: 5px 5px var(--dark);
     cursor: pointer;
+    text-decoration: none;
+    display: inline;
+    place-self: end;
   }
 
-  button:hover {
+  a:hover {
     background-color: var(--hover-btn);
   }
-
-
 </style>
