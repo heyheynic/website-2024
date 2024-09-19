@@ -3,33 +3,45 @@
 ---
 
 <header>
-  <a href="/">
-    <img src="favicon.svg" alt="website logo" class="logo" />
-  </a>
-
-  <nav>
-    <ul>
-      <a href="portfolio">
-        <li>Portfolio</li>
-      </a>
-      <a href="blog">
-        <li>Blog</li>
-      </a>
-      <a href="about">
-        <li>About</li>
-      </a>
-      <a href="contact">
-        <li>Contact</li>
-      </a>
-    </ul>
-  </nav>
+  <div class="wrapper">
+    <a href="/">
+      <img src="/favicon.svg" alt="website logo" class="logo" />
+    </a>
+    <nav>
+      <ul>
+        <a href="/portfolio">
+          <li>Portfolio</li>
+        </a>
+        <a href="/blog">
+          <li>Blog</li>
+        </a>
+        <a href="/about">
+          <li>About</li>
+        </a>
+        <a href="/contact">
+          <li>Contact</li>
+        </a>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <style>
   header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    grid-column: full;
+    border-bottom: solid var(--dark) 3px;
+    position: relative;
+    z-index: 99;
+
+    .wrapper {
+      grid-column: main;
+      display: grid;
+      grid: 1fr / 1fr 2fr;
+      align-items: center;
+
+      height: 4em;
+      container: burger / inline-size;
+    }
 
     .logo {
       width: min(4rem, 5rem);
@@ -37,9 +49,11 @@
     }
   }
   ul {
-    display: flex;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
     gap: 1em;
-    padding: 1em;
+text-align: right;
+    
   }
 
   a {
@@ -50,10 +64,19 @@
       text-decoration-color: var(--dark);
       text-decoration-thickness: 0.3ex;
       text-underline-offset: 0.4ex;
-
     }
     :active {
-        color: var(--dark);
+      color: var(--dark);
+    }
+  }
+
+  @container burger (width < 500px) {
+    nav {
+      background-color: red;
+
+      ul {
+        display: none;
       }
+    }
   }
 </style>
