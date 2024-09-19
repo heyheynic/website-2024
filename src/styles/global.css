@@ -5,5 +5,30 @@
 @import url("./overrides.css") layer(overrides);
 
 @layer global {
+  :root {
+    --full: 1fr;
+    --content: min(1000px, 100% - 2em * 2);
+  }
 
+  body {
+    display: grid;
+    grid-template-columns:
+      [full-start] var(--full)
+      [main] var(--content)
+      var(--full) [full-end];
+
+    grid-template-rows: auto 1fr auto;
+
+
+    > * {
+      grid-column: main;
+      display: grid;
+      grid: auto/subgrid;
+    }
+
+
+    .full {
+      grid-column: full;
+    }
+  }
 }

@@ -4,15 +4,17 @@ import LinkedinIcon from "../components/LinkedinIcon.astro";
 ---
 
 <footer>
-  <a href="https://github.com/heyheynic" target="”_blank”"> <GithubIcon /></a>
-
-  <a href="https://www.linkedin.com/in/heyheywood/" target="”_blank”">
-    <LinkedinIcon /></a
-  >
+    <a href="https://github.com/heyheynic" target="”_blank”"> <GithubIcon /></a>
+    <a href="https://www.linkedin.com/in/heyheywood/" target="”_blank”">
+      <LinkedinIcon /></a
+    >
 </footer>
 
 <style>
   footer {
+    grid-column: full;
+    border-top: solid var(--dark) 3px;
+    
     display: flex;
     justify-content: center;
     gap: clamp(1.125rem, 0.212rem + 4.5652vw, 3.75rem);

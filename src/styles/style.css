@@ -26,10 +26,11 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     }
 
+ 
 
 
 h1 {
-  font-size: var(--step-6);
+  font-size: var(--size-6);
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 800;
 }

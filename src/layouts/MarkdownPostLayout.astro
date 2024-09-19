@@ -1,21 +1,19 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+
 import "../styles/global.css";
-import "../styles/style.css";
-import "../styles/layout.css";
+
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout>
-<Header />
-<main>
+
+
   <h1>{frontmatter.title}</h1>
   <p>Written by {frontmatter.author}</p>
   <slot />
 </main>
-<Footer />
+
 </BaseLayout>
 <style>
   header {
