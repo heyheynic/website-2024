@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PortfolioCard from "../../components/PortfolioCard.astro";
+
+const pageTitle = "Portfolio";
+
+
+
+
+const portfolio = await getCollection("portfolio");
+
+
+// img={post.data.img} altText={post.data.altText} slug={post.slug} 
+// 
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <h1>Portfolio</h1>
+
+  <h2>project mapping test:</h2>
+
+  <p>All posts:</p>
+  {
+    portfolio.map((post) => (
+      <li>
+        {/* <a href={`/portfolio/${post.slug}`}>{post.data.title}</a> */}
+        
+        {/* <PortfolioCard img={post.data.img} altText={post.data.altText} slug={post.slug} /> */}
+
+        <PortfolioCard post={post} />
+  
+        
+      </li>
+    ))
+  }
+ 
+</BaseLayout>
+
+<style>
+  .wrapper {
+    padding: 3em 0 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+</style>
