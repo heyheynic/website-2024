@@ -15,6 +15,14 @@
   --size-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
   --size-6: clamp(3.3592rem, 2.8691rem + 2.4507vw, 4.7684rem);
   --size-7: clamp(4.0311rem, 3.36rem + 3.3555vw, 5.9605rem);
+
+  /* flow */
+  --space-s: clamp(1.125rem, 1.0795rem + 0.2273vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6193rem + 0.3409vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.1591rem + 0.4545vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2386rem + 0.6818vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3182rem + 0.9091vw, 5rem);
+
 }
 
 body {

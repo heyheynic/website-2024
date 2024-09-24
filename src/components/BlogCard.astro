@@ -1,44 +1,39 @@
 ---
 import { Image } from "astro:assets";
-import PrimaryBtn from "./PrimaryBtn.astro";
 import { getEntry, type CollectionEntry } from "astro:content";
 
-// Access the properties from the `portfolio`
-
 type Props = {
-  portfolio: CollectionEntry<"portfolio">;
+  post: CollectionEntry<"posts">;
 };
 
-const { portfolio } = Astro.props;
-
-const { img, altText, slug} = portfolio.data;
-
-
-
-
+const { post } = Astro.props;
+const { author, description, title, pubDate } = post.data;
+const { data: authorData } = await getEntry("team", author.id);
 ---
 
-<article class="project">
-  <div class="project__image">
-    <div class="img__border">
-      <Image
-        src={img}
-        alt={altText}
-        format="avif"
-      />
+<article class="post-card">
+    <div>
+      <h2>{title}</h2>
+      <div class="meta">
+        <Image src={authorData.img} alt={authorData.name} width="25" />
+        <p>{authorData.name}</p>
+        <span>•</span>
+        <time datetime={pubDate.toISOString()}
+          >{
+            pubDate.toLocaleDateString(undefined, {
+              dateStyle: "medium",
+              timeZone: "UTC",
+            })
+          }</time
+        >
+      </div>
     </div>
-  </div>
-  <section class="project__content flow">
-    <h2 class="project__title"></h2>
-    <p class="project__description"></p>
-    <h3>Subtitle</h3>
-    <p>More content goes here.</p>
-  </section>
-  <a href={`/portfolio/${slug}`} class="project__button">
-    <PrimaryBtn btnText="See more" src={`/portfolio/${slug}`} />
-  </a>
-</article>
+    </div>
+    <p>{description}</p>
+    <a href={`/blog/${post.slug}`} class="btn">Read Post</a>
+  </article>
 
+  
 <style>
   .project {
     grid-column: breakout;
