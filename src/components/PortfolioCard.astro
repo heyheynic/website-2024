@@ -1,18 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import PrimaryBtn from "./PrimaryBtn.astro";
-import { getEntry, type CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 // Access the properties from the `portfolio`
 
 type Props = {
-  portfolio: CollectionEntry<"portfolio">;
+  post: CollectionEntry<"portfolio">;
 };
 
-const { portfolio } = Astro.props;
+const { post } = Astro.props;
 
-const { img, altText, slug} = portfolio.data;
-
+const { img, altText, title } = post.data;
 
 
 
@@ -21,21 +20,21 @@ const { img, altText, slug} = portfolio.data;
 <article class="project">
   <div class="project__image">
     <div class="img__border">
-      <Image
+      <!-- <Image
         src={img}
         alt={altText}
         format="avif"
-      />
+      /> -->
     </div>
   </div>
   <section class="project__content flow">
-    <h2 class="project__title"></h2>
+    <h2 class="project__title">{title}</h2>
     <p class="project__description"></p>
     <h3>Subtitle</h3>
     <p>More content goes here.</p>
   </section>
-  <a href={`/portfolio/${slug}`} class="project__button">
-    <PrimaryBtn btnText="See more" src={`/portfolio/${slug}`} />
+  <a href={`/portfolio/${post.slug}`} class="project__button">
+    <PrimaryBtn btnText="See more" src={`/portfolio/${post.slug}`} />
   </a>
 </article>
 

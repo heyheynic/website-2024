@@ -32,6 +32,7 @@ const portfolioCollection = defineCollection({
       description: z.string(),
       img: image().optional(),
       altText: z.string().optional(),
+
     }),
 });
 
@@ -44,11 +45,10 @@ const team = defineCollection({
       bio: z.string(),
       email: z.string(),
       // role: z.enum(["Software", "Design", "Marketing"]),
-       role: z.string(),
+      role: z.string(),
       img: image(),
     }),
 });
-
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {

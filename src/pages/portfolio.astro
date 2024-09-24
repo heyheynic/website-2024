@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PortfolioCard from "../components/PortfolioCard.astro";
 
@@ -6,7 +7,6 @@ const pageTitle = "Portfolio";
 
 
 
-import { getCollection } from "astro:content";
 
 const portfolio = await getCollection("portfolio");
 
@@ -28,7 +28,7 @@ const portfolio = await getCollection("portfolio");
         
         {/* <PortfolioCard img={post.data.img} altText={post.data.altText} slug={post.slug} /> */}
 
-        <PortfolioCard img={post} altText={post} slug={post.slug} />
+        <PortfolioCard post={post} />
   
         
       </li>
