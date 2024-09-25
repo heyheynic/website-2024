@@ -1,13 +1,35 @@
 ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getEntries } from "astro:content";
+import { Image } from "astro:assets";
 
+export async function getStaticPaths() {
+  const portfolio = await getCollection("portfolio");
+  return portfolio.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
 
+// type Props = {
+//   entry: CollectionEntry<"posts">;
+// }
 
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 
 ---
 
 
-  <h1>Portfolio page</h1>
+<BaseLayout>
+
+  <h1>{entry.data.title}</h1>
+  <Image src={entry.data.img} alt={entry.data.altText}/>
+  <Content />
+
+</BaseLayout>
 
 
 
