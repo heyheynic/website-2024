@@ -1,0 +1,71 @@
+---
+// This page is going to consist of several elements, I'm considering there will be seven sections of it. Each section should minimum take up about 100dvh.
+
+// First and foremost, I will change things around in the header/navigation, making it unique for this page only. It'll only have the logo that will link to the homepage when clicking on it.
+
+// First section will just be an introduction where it says "interactive resume"
+
+// Second section will have a quick introduction of me, my name, location, and some sort of quote.
+
+// Third section will have a big text, highlighting my passions
+
+// Fourth section will have a longer text, just to get to know me better. It'll be surrounded by the assets I have created.
+
+// Fifth section will show my "Toolbox", my "hard skills", and what language I speak.
+
+// Sixth section will be where I share some projects I have been working on, portfolio etc.
+
+// And last section will be the CTA, with links to socials and perhaps a form to contact me.
+const pageTitle = "Nicole Heywood";
+import ResumeLayout from "../layouts/ResumeLayout.astro";
+import ResumeHeader from "../components/ResumeHeader.astro";
+import ResumeSec1 from "../components/ResumeSec1.astro";
+import ResumeSec2 from "../components/ResumeSec2.astro";
+import ResumeSec3 from "../components/ResumeSec3.astro";
+import ResumeSec4 from "../components/ResumeSec4.astro";
+import ResumeSec5 from "../components/ResumeSec5.astro";
+import ResumeSec6 from "../components/ResumeSec6.astro";
+import ResumeSec7 from "../components/ResumeSec7.astro";
+---
+
+<ResumeLayout pageTitle={pageTitle}>
+  <ResumeHeader />
+  <div class="wrapper">
+    <div class="section 1 main">
+      <ResumeSec1 />
+    </div>
+    <div class="section 2 full">
+      <ResumeSec2 />
+    </div>
+    <div class="section 3 main">
+      <ResumeSec3 />
+    </div>
+    <div class="section 4 main">
+      <ResumeSec4 />
+    </div>
+    <div class="section 5 main">
+      <ResumeSec5 />
+    </div>
+    <div class="section 6 main">
+      <ResumeSec6 />
+    </div>
+    <div class="section 7 main">
+      <ResumeSec7 />
+    </div>
+  </div>
+</ResumeLayout>
+
+<style>
+  .wrapper {
+    position: relative;
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
+
+
+
+    .main {
+      grid-column: main;
+    }
+  }
+</style>

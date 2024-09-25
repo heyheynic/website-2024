@@ -1,0 +1,42 @@
+---
+
+---
+
+<div class="font">Interactive resume</div>
+
+<style>
+  div {
+    display: grid;
+    grid: auto/ auto;
+    place-content: center;
+    height: 90dvh;
+    position: relative;
+    font-size: var(--size-1);
+    font-weight: 600;
+    letter-spacing: 1px;;
+
+ 
+    &::before {
+    content: "";
+    width: clamp(2.5rem, -6.7308rem + 46.1538vw, 25rem); /* 40px → 400px */
+    height: 2px;
+    background-color: var(--accent);
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    width: clamp(2.5rem, -6.7308rem + 46.1538vw, 25rem); /* 40px → 400px */
+    height: 2px;
+    background-color: var(--accent);
+
+    position: absolute;
+    top: 50%;
+    right: -5%;
+    z-index: -1;
+  }
+}
+</style>

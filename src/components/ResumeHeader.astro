@@ -1,0 +1,33 @@
+---
+
+---
+
+<header>
+  <div class="wrapper">
+    <a href="/">
+      <img src="/favicon.svg" alt="website logo" class="logo" />
+    </a>
+  </div>
+</header>
+
+<style>
+  header {
+    grid-column: full;
+    border-bottom: solid var(--dark) 3px;
+    position: relative;
+    z-index: 99;
+
+    .wrapper {
+      grid-column: main;
+      display: grid;
+      grid: 1fr / 1fr;
+      place-items: center;
+      height: 4em;
+    }
+
+    .logo {
+      width: min(4rem, 5rem);
+      margin-inline-end: auto;
+    }
+  }
+</style>
