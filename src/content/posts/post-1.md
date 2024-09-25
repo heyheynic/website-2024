@@ -10,7 +10,7 @@ slug: blog-slug-test
 tags: ["astro", "blogging", "learning in public"]
 relatedPosts: ["post-2"]
 ---
-<!-- # My First Blog Post -->
+# My First Blog Post
 
 Published on: 2022-07-01
 
