@@ -1,5 +1,4 @@
 ---
-
 title: My Third Blog Post
 author: nicole-heywood
 description: "I had some challenges, but asking in the community really helped!"

@@ -7,8 +7,11 @@ type Props = {
 };
 
 const { post } = Astro.props;
-const { author, description, title, pubDate } = post.data;
+// const { author, description, title, pubDate } = post.data;
+const { author, description, title, pubDate } = post?.data ?? {};
 const { data: authorData } = await getEntry("team", author.id);
+
+
 
 ---
 
