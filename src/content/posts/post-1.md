@@ -1,13 +1,12 @@
 ---
-title: 'My First Blog Post'
+title: My First Blog Post
 pubDate: 2022-07-01
 description: 'This is the first post of my new Astro blog.'
 author: nicole-heywood
-# image:
-#     url: 'https://docs.astro.build/assets/rose.webp'
-#     alt: 'The Astro logo on a dark background with a pink glow.'
+
 tags: ["astro", "blogging", "learning in public"]
 relatedPosts: ["post-2"]
+
 ---
 # My First Blog Post
 
