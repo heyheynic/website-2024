@@ -1,5 +1,5 @@
 name: Test Author
 bio: Beep beep, I'm just here to try things out!
-img: './test.png'
+img: './images/test.png'
 role: tester;
 email: tester@company.com
