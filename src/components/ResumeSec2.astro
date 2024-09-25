@@ -1,16 +1,165 @@
 ---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
+import resumeImage from "../assets/images/profile-pic.webp";
 ---
 
-<div class="font">playing</div>
+<div class="wrapper">
+  <div class="title">
+    <h1 class="font"><span>N</span>icole Heywood</h1>
+    <p>Web developer, designer, illustrator and very nerdy</p>
+  </div>
+
+  <div class="about">
+    <div class="img">
+      <Image src={resumeImage} alt="me" />
+    </div>
+    <div class="text">
+      <div class="quote">
+        I like pretty things, building things and thinking about things
+      </div>
+      <div class="location">
+        <Icon name="location" />
+        <span>Copenhagen,</span>
+        <span>Denmark</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <style>
-  div {
+  .wrapper {
     display: grid;
-    grid: auto/ auto;
-    place-content: center;
+    grid: auto 1fr / 1fr 1fr;
     height: 100dvh;
     position: relative;
-    background-color: rgb(124, 87, 43);
+
+    /* > * {
+      outline: 2px solid rgb(53, 255, 188);
+
+      > * {
+        outline: 2px solid rgb(255, 129, 120);
+      }
+    } */
+  }
+
+  .title {
+    grid-column: 1/-1;
+    text-align: center;
+    position: relative;
+    width: fit-content;
+    place-self: center;
+
+    h1 {
+      line-height: 0.8;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 90%;
+        /* Space s: 56px → 70px */
+        height: clamp(3.5rem, 3.141rem + 1.7949vw, 4.375rem);
+        position: absolute;
+        background-color: var(--accent);
+        bottom: -40%;
+        left: 5%;
+        transform: rotate(5deg);
+        z-index: -1;
+      }
+
+      span {
+        position: relative;
+
+        &::before {
+          content: "Hello, I'm";
+          position: absolute;
+          font-size: clamp(
+            1.125rem,
+            0.9712rem + 0.7692vw,
+            1.5rem
+          ); /* Step 0: 18px → 24px */
+          font-family: var(--sans);
+          font-weight: 400;
+          left: -100%;
+          top: -1em;
+          width: 200%;
+        }
+      }
+    }
+
+    p {
+      padding: 1em 0;
+      font-style: italic;
+    }
+  }
+
+  .about {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    place-items: center;
+  }
+  .img {
+    width: clamp(18.75rem, 12.0833rem + 33.3333vw, 35rem);
+    /* 300px → 560px */
+    aspect-ratio: 1;
+
+    img {
+      border-radius: 1000em;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .quote {
+    height: fit-content;
+    align-items: baseline;
+    display: flex;
+    gap: 1ch;
+    position: relative;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(
+      1.125rem,
+      0.9712rem + 0.7692vw,
+      1.5rem
+    ); /* Step 0: 18px → 24px */
+
+    &::before {
+      content: open-quote;
+      font-style: normal;
+      font-family: serif;
+      font-weight: 900;
+      font-size: 2.5em;
+    }
+
+    &::after {
+      content: "";
+      width: 80%;
+      height: clamp(1.125rem, 0.9712rem + 0.7692vw, 1.5rem);
+
+      position: absolute;
+      background-color: var(--accent);
+      bottom: -20%;
+      left: 5%;
+      transform: rotate(-4deg);
+      z-index: -1;
+    }
+  }
+
+  .location {
+    padding: 4em 0 0;
+    display: flex;
+    place-content: center;
+    gap: 0.5em;
+
+    svg {
+        align-self: center;
+    }
+
+    span:first-of-type {
+        font-weight: 700;
+    }
   }
 </style>
