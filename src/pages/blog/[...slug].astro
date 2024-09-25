@@ -31,22 +31,21 @@ const relatedPosts = entry.data.relatedPosts
 ---
 <MarkdownPostLayout frontmatter={entry.data}>
 
+
+  <Content />
   <div class="meta">
     <Image src={authorData.img} alt={authorData.name} width="25" />
     <p>{authorData.name}</p>
-    <span>•</span>
-    <time datetime={entry.data.pubDate.toISOString()}
+    <!-- <time datetime={entry.data.pubDate.toISOString()}
       >{
         entry.data.pubDate.toLocaleDateString(undefined, {
           dateStyle: "medium",
           timeZone: "CET",
         })
       }</time
-    >
+    > -->
   </div>
 
-  <Content />
-  
   {
     relatedPosts.length > 0 && (
 

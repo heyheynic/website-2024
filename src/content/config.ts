@@ -18,7 +18,9 @@ const postsCollection = defineCollection({
         .optional(),
       img: image().optional(),
       pubDate: z.date(),
-      author: reference("team"),
+      // author: reference("team"),
+      author: z.string().default('Nicole H'),
+
       relatedPosts: z.array(reference("posts")).optional(),
     }),
 });
@@ -37,22 +39,22 @@ const portfolioCollection = defineCollection({
 });
 
 // team, (just me atm)
-const team = defineCollection({
-  type: "data",
-  schema: ({ image }) =>
-    z.object({
-      name: z.string(),
-      bio: z.string(),
-      email: z.string().optional(),
-      // role: z.enum(["Software", "Design", "Marketing"]),
-      role: z.string().optional(),
-      img: image(),
-    }),
-});
+// const team = defineCollection({
+//   type: "data",
+//   schema: ({ image }) =>
+//     z.object({
+//       name: z.string(),
+//       bio: z.string(),
+//       email: z.string().optional(),
+//       // role: z.enum(["Software", "Design", "Marketing"]),
+//       role: z.string().optional(),
+//       img: image(),
+//     }),
+// });
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
   portfolio: portfolioCollection,
-  team: team,
+  // team: team,
 };

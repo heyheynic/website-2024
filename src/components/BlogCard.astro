@@ -9,16 +9,20 @@ type Props = {
 // Extracting the post object
 const { post } = Astro.props;
 
+
 const { author, description, title, pubDate } = post.data;
 
 const { data: authorData } = await getEntry("team", author.id);
+
+
+
 ---
 
 <article class="post-card">
   <div>
     <h2>{title}</h2>
-
-    <div class="meta">
+    
+    <!-- <div class="meta">
       <Image src={authorData.img} alt={authorData.name} width="25" />
       <p>{authorData.name}</p>
       <span>•</span>
@@ -30,7 +34,7 @@ const { data: authorData } = await getEntry("team", author.id);
           })
         }
       </time>
-    </div>
+    </div> -->
   </div>
 </article>
 <p>{description}</p>
