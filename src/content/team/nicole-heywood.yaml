@@ -1,6 +1,6 @@
 name: "Nicole Heywood"
 bio: "Owner of nicsay.dev"
-img: "./images/test.png"
+img: ./images/test.png
 role: "owner;"
 email: me@company.com
 
