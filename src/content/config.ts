@@ -43,9 +43,9 @@ const team = defineCollection({
     z.object({
       name: z.string(),
       bio: z.string(),
-      email: z.string(),
+      email: z.string().optional(),
       // role: z.enum(["Software", "Design", "Marketing"]),
-      role: z.string(),
+      role: z.string().optional(),
       img: image(),
     }),
 });

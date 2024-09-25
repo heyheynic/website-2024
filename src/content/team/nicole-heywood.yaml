@@ -3,3 +3,11 @@ bio: Owner of nicsay.dev
 img: './images/test.png'
 role: owner;
 email: me@company.com
+
+
+
+      # name: z.string(),
+      # bio: z.string(),
+      # email: z.string().optional(),
+      # role: z.string().optional(),
+      # img: image(),
