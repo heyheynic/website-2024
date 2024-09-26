@@ -1,28 +1,84 @@
 ---
+const comfortList = [
+  "HTML5",
+  "CSS",
+  "JavaScript",
+  "Astro.js",
+  "Photoshop",
+  "Illustrator",
+  "Figma",
+  "Procreate",
+  "Responsive design",
+  "Sustainability",
+];
 
+const experienceList = [
+  "Wordpress",
+  "After Effects",
+  "InDesign",
+  "Premier pro",
+  "React.js",
+  "Vue.js",
+  "Lighthouse",
+  "Sass",
+];
 ---
+
 <div class="wrapper">
   <div class="ground"></div>
-
+  <h2>Toolbox</h2>
+  <div class="list">
+    <div class="comfort">
+      <h3>My day-to-day comfort:</h3>
+      <ul>
+        {comfortList.map((list) => <li>{list}</li>)}
+      </ul>
+    </div>
+    <div class="experience">
+      <h3>I have experience with:</h3>
+      <ul>
+        {experienceList.map((list) => <li>{list}</li>)}
+      </ul>
+    </div>
+  </div>
 </div>
 
-
 <style>
-   .ground {
-      background-color: var(--dark);
-      position: absolute;
-      top: -0.5em;
-      height: clamp(2.5rem, 2.3235rem + 0.8824vw, 2.875rem);
-      width: 100%;
+  .ground {
+    background-color: var(--dark);
+    position: absolute;
+    top: -0.5em;
+    height: clamp(2.5rem, 2.3235rem + 0.8824vw, 2.875rem);
+    width: 100%;
 
-      z-index: -1;
-    }
-.wrapper{
+    z-index: -1;
+  }
+  .wrapper {
     display: grid;
-    grid: auto/ auto;
-    place-content: center;
+    grid: auto 1fr / subgrid;
+    grid-column: main;
+
+    justify-items: center;
     height: 100dvh;
     position: relative;
     background-color: var(--dark);
+    color: var(--light);
+  }
+
+  h2 {
+    grid-row: 1;
+    grid-column: 1/-1;
+    font-family: var(--serif);
+  }
+
+  .list {
+   background-color: green;
+    ul {
+      display: grid;
+      align-self: center;
+    }
+    li {
+      list-style: disc;
+    }
   }
 </style>
