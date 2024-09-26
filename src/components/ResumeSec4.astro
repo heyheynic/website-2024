@@ -16,6 +16,7 @@
     together with the technical demands of the web, allowing me to blend
     aesthetics with functionality.
   </div>
+
   <div class="bottom">
     <div class="assets">
       <svg
@@ -104,16 +105,18 @@
     grid-row: 1/-1;
     grid-column: 1/-1;
     max-width: 500px;
-    width: 100%;
+
     place-self: center;
+    padding: clamp(0.5rem, 1.2353rem + -1.1765vw, 1rem);
   }
 
   .bottom {
-    grid-row: 1/-1;
+    grid-row: 2/-1;
     grid-column: 1/-1;
     display: grid;
     grid: auto / repeat(4, 1fr);
     height: auto;
+    padding: 0 clamp(0rem, -16.6667rem + 33.3333vw, 12.5rem);
 
     .assets {
       grid-column: 1/-1;
@@ -124,7 +127,7 @@
       }
 
       .first {
-        left: clamp(-5rem, -7.6471rem + 13.2353vw, 0.625rem); /* minmax * -1.6 */;
+        left: clamp(-9.375rem, -15rem + 24vw, 0rem);
         max-height: clamp(
           12.5rem,
           4.3235rem + 40.8824vw,
@@ -133,27 +136,23 @@
       }
 
       .second {
-        left: clamp(2.5rem, -3.6765rem + 30.8824vw, 15.625rem);
+        left: clamp(-1.875rem, -8.625rem + 28.8vw, 9.375rem);
         max-height: clamp(2.125rem, 0.6838rem + 7.2059vw, 5.1875rem);
       }
 
       .third {
-        right: clamp(2.5rem, -3.6765rem + 30.8824vw, 15.625rem);
+        right: clamp(-0.625rem, -8.5rem + 33.6vw, 12.5rem);
         max-height: clamp(4.5rem, 1.5588rem + 14.7059vw, 10.75rem);
       }
 
       .fourth {
-        right: clamp(-5rem, -7.6471rem + 13.2353vw, 0.625rem);
+        right: clamp(-9.375rem, -15rem + 24vw, 0rem);
         max-height: clamp(9.3125rem, 3.1949rem + 30.5882vw, 22.3125rem);
       }
     }
     .ground {
       background-color: var(--dark);
       position: absolute;
-      bottom: -2em;
-      height: clamp(2.5rem, 2.3235rem + 0.8824vw, 2.875rem);
-      width: 100%;
-
       z-index: -1;
     }
   }

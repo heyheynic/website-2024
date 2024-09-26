@@ -1,11 +1,23 @@
 ---
 
 ---
+<div class="wrapper">
+  <div class="ground"></div>
 
-<div class="font">playing</div>
+</div>
+
 
 <style>
-  div {
+   .ground {
+      background-color: var(--dark);
+      position: absolute;
+      top: -0.5em;
+      height: clamp(2.5rem, 2.3235rem + 0.8824vw, 2.875rem);
+      width: 100%;
+
+      z-index: -1;
+    }
+.wrapper{
     display: grid;
     grid: auto/ auto;
     place-content: center;
