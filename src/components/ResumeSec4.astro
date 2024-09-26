@@ -2,15 +2,163 @@
 
 ---
 
-<div class="font">playing</div>
+<div class="wrapper">
+  <div class="text">
+    Currently, I'm enrolled in Multimedia Design at KEA in Copenhagen, where I
+    found myself falling madly, deeply in love with the intricacies and
+    processes of web development. Prior to this, I went to a heavily art-focused
+    highschool, and have studied courses within several different art fields,
+    such as Landscape Architecture and Comics Creation. However, it was in
+    frontend development that I truly found my place. It is logical, but yet
+    messy, nothing makes sense, but at the same time, everything is just crystal
+    clear. This just happens to be the area where my many years of experience in
+    graphic design fit like a glove, since I get to use my eye for the visuals
+    together with the technical demands of the web, allowing me to blend
+    aesthetics with functionality.
+  </div>
+  <div class="bottom">
+    <div class="assets">
+      <svg
+        class="img first"
+        width="171"
+        height="439"
+        viewBox="0 0 171 439"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M62.4483 439H114.924V305.099H144.1C158.171 305.099 171 287.75 171 268.651V173.204C171 161.103 162.682 151.335 152.377 151.335C142.072 151.335 133.754 161.103 133.754 173.204V261.361H114.924V30.8112C114.924 13.8019 103.17 0 88.6859 0C74.2014 0 62.4483 13.8019 62.4483 30.8112V176.897H37.2459V88.7403C37.2459 76.6394 28.9276 66.8711 18.6229 66.8711C8.31825 66.8711 0 76.6394 0 88.7403V184.187C0 203.238 12.8291 220.636 26.8998 220.636H62.4483V439Z"
+          fill="#553636"></path>
+      </svg>
+
+      <svg
+        class="img second"
+        width="102"
+        height="104"
+        viewBox="0 0 102 104"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M83.13 42.0576C89.7816 64.1616 80.961 86.361 63.4224 91.6389C45.8838 96.9167 26.289 83.249 19.6426 61.1626C12.4569 37.284 39.3501 11.5813 39.3501 11.5813C39.3501 11.5813 76.4959 19.9483 83.1476 42.0523L83.13 42.0576Z"
+          fill="#FFCEAD"></path>
+        <path
+          d="M83.1301 42.0576C89.7818 64.1616 38.2423 95.9396 45.0018 78.9401C64.7094 29.3587 39.3503 11.5813 39.3503 11.5813C39.3503 11.5813 76.4961 19.9483 83.1477 42.0523L83.1301 42.0576Z"
+          fill="#FB8739"></path>
+        <path
+          d="M74.8777 84.1868C62.5161 97.6793 38.6821 95.9988 21.6427 80.4315C3.22859 63.6109 13.1522 27.8003 13.1522 27.8003"
+          fill="#553636"></path>
+        <path
+          d="M48.9303 91.995C66.6852 96.4247 85.6335 81.8698 91.2519 59.4843C97.325 35.2948 69.2688 10.9133 69.2688 10.9133"
+          fill="#553636"></path>
+      </svg>
+
+      <svg
+        class="img third"
+        width="65"
+        height="172"
+        viewBox="0 0 65 172"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M0 172H65V32.5508C65 14.5811 50.4416 0 32.5 0C14.5584 0 0 14.5811 0 32.5508V172Z"
+          fill="#553636"></path>
+      </svg>
+
+      <svg
+        class="img fourth"
+        width="171"
+        height="357"
+        viewBox="0 0 171 357"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M108.552 357V220.636H144.1C158.171 220.636 171 203.238 171 184.187V88.7403C171 76.6394 162.682 66.8711 152.377 66.8711C142.072 66.8711 133.754 76.6394 133.754 88.7403V176.897H108.552V30.8112C108.552 13.8019 96.7986 0 82.314 0C67.8295 0 56.0764 13.8019 56.0764 30.8112V261.361H37.2459V173.204C37.2459 161.103 28.9276 151.335 18.6229 151.335C8.31825 151.335 0 161.103 0 173.204V268.651C0 287.75 12.8291 305.099 26.8998 305.099H56.0764V357H108.552Z"
+          fill="#553636"></path>
+      </svg>
+    </div>
+    <div class="ground"></div>
+  </div>
+</div>
 
 <style>
-  div {
+  .wrapper {
     display: grid;
-    grid: auto/ auto;
+    grid: 1fr auto auto/ 1fr;
     place-content: center;
     height: 100dvh;
     position: relative;
-    background-color: rgb(255, 196, 199);
+    outline: 2px solid red;
+  }
+
+  .text {
+    grid-row: 1/3;
+    grid-column: 1/-1;
+    max-width: 500px;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .bottom {
+    grid-row: 2/-1;
+    grid-column: 1/-1;
+    display: grid;
+    grid: auto auto / repeat(4, 1fr);
+
+    .assets {
+      grid-row: 1;
+      grid-column: 1/-1;
+      position: relative;
+      display: grid;
+      grid: 1fr / repeat(4, auto);
+      align-items: end;
+      max-width: 100%;
+      justify-content: space-between;
+
+      .first svg,
+      .fourth svg {
+        width: clamp(6.25rem, 4.1618rem + 10.4412vw, 10.6875rem);
+        position: absolute;
+        bottom: 0;
+      }
+
+      .second svg,
+      .third svg {
+        width: clamp(2.5rem, 1.6176rem + 4.4118vw, 4.375rem);
+        position: absolute;
+        bottom: 0;
+      }
+
+      .first svg {
+        left: 10%;
+      }
+      /* .first::before {
+        content: "";
+        display: inline-flex;
+        background-image: url("../assets/plant-1.svg");
+        width: 171px;
+          height: 439px;
+
+      } */
+    }
+    .ground {
+      grid-row: 2;
+      grid-column: 1/-1;
+      /* background-color: var(--dark); */
+      position: absolute;
+      bottom: 0;
+      height: clamp(6.25rem, 3.3088rem + 14.7059vw, 12.5rem);
+      width: 100%;
+      background-color: rgb(4, 255, 0);
+      z-index: -1;
+    }
   }
 </style>

@@ -32,8 +32,9 @@ import resumeImage from "../assets/images/profile-pic.webp";
   .wrapper {
     display: grid;
     grid: auto 1fr / 1fr 1fr;
-    height: 100dvh;
+    height: 90dvh;
     position: relative;
+    padding: clamp(3.125rem, 1.6544rem + 7.3529vw, 6.25rem) 0;
 
     /* > * {
       outline: 2px solid rgb(53, 255, 188);
@@ -155,11 +156,11 @@ import resumeImage from "../assets/images/profile-pic.webp";
     gap: 0.5em;
 
     svg {
-        align-self: center;
+      align-self: center;
     }
 
     span:first-of-type {
-        font-weight: 700;
+      font-weight: 700;
     }
   }
 </style>
