@@ -34,22 +34,24 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
     <!-- <div class="section 1 main">
       <ResumeSec1 />
     </div> -->
-    <div class="section 2 main">
+    <div class="section two main">
       <ResumeSec2 />
     </div>
-    <div class="section 3 main">
+    <div class="section three main">
       <ResumeSec3 />
     </div>
-    <div class="section 4 full">
+    <div class="section four full">
       <ResumeSec4 />
     </div>
-    <div class="section 5 full">
+    
+    <div class="section five full">
+      <div class="ground"></div>
       <ResumeSec5 />
     </div>
-    <div class="section 6 main">
+    <div class="section six main">
       <ResumeSec6 />
     </div>
-    <div class="section 7 main">
+    <div class="section seven main">
       <ResumeSec7 />
     </div>
   </div>
@@ -62,6 +64,22 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
     display: grid;
     grid-template-columns: subgrid;
 
+    .five {
+      background-color: var(--dark);
+      display: grid;
+      grid: auto/subgrid;
+      position: relative;
 
+      .ground {
+        grid-column: full;
+        background-color: var(--dark);
+        position: absolute;
+        top: -0.5em;
+        height: clamp(2.5rem, 2.3235rem + 0.8824vw, 2.875rem);
+        width: 100%;
+
+        z-index: -1;
+      }
+    }
   }
 </style>
