@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+const { img, altText } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/resume/*.{jpeg,jpg,png,gif,webp}"
+);
+
+if (!images[`/src/assets/resume/${img}`]) {
+  throw new Error(`Image "${img}" not found in the assets folder.`);
+}
+---
+
+<div class="card">
+  
+    <Image
+      src={images[`/src/assets/resume/${img}`]()}
+      alt={altText}
+      format="avif"
+   />
+
+  <div class="text">
+    <h3>Text about</h3>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, vero.
+    </p>
+  </div>
+</div>
+
+<style>
+  .card {
+    outline: 2px solid var(--dark);
+    /* 375px 300px → 1000px 420px */
+    height: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
+    /* 375px 460px → 1000px 640px */
+
+    width: clamp(28.75rem, 22rem + 28.8vw, 40rem);
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1;
+    }
+  
+
+  .text {
+  }
+</style>

@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry, getEntry } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
-
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import BlogCard from "../../components/BlogCard.astro";
 import { getEntries } from "astro:content";
@@ -21,19 +21,27 @@ type Props = {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const { data: authorData } = await getEntry("team", entry.data.author);
-
+const { img } = authorData;
 
 const relatedPosts = entry.data.relatedPosts
   ? await getEntries(entry.data.relatedPosts)
   : [];
 
 
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/team/images/*.{jpeg,jpg,png,gif,webp}');
+
+if (!images[`/src/content/team/images/${img}`]) {
+  throw new Error(`Image "${img}" not found in the assets folder.`);
+}
+
 ---
 <MarkdownPostLayout frontmatter={entry.data}>
 
   <Content />
   <div class="meta">
-    <Image src={authorData.img} alt={authorData.name} width="25" />
+    <Image src={
+     images[`/src/content/team/images/${authorData.img}`]()} alt={authorData.name} width="25" />
     <p>{authorData.name}</p>
     <!-- <time datetime={entry.data.pubDate.toISOString()}
       >{

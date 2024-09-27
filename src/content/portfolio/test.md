@@ -3,7 +3,7 @@ title: Portfolio test test
 publishDate: 2020-03-02 00:00:00
 slug: portfolio-slug-test
 # img: /assets/portfolio/np.webp
-img: "./images/np.webp"
+img: np.webp
 altText: Iridescent ripples of a bright blue and pink liquid
 description: |
   This is what this portfolio will entail, look at this amaxinf thing

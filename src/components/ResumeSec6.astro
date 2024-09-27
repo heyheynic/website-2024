@@ -1,16 +1,92 @@
 ---
-
+import PrimaryBtn from "./PrimaryBtn.astro";
+import ResumePortfolioCard from "./ResumePortfolioCard.astro";
 ---
 
-<div class="font">playing</div>
+<div class="wrapper">
+  <h2>Projects</h2>
+
+  <div class="portfolio__cards">
+    <ResumePortfolioCard img="mep.jpeg" altText="hej" />
+    <ResumePortfolioCard img="mep.jpeg" altText="hej" />
+    <ResumePortfolioCard img="mep.jpeg" altText="hej" />
+    <!-- <ResumePortfolioCard />
+    <ResumePortfolioCard /> -->
+  </div>
+
+  <div class="btn">
+    <PrimaryBtn btnText="See more" />
+  </div>
+</div>
 
 <style>
-  div {
+  .wrapper {
     display: grid;
-    grid: auto/ auto;
+    grid: auto 1fr auto / 1fr;
     place-content: center;
     height: 100dvh;
+  }
+
+  h2 {
+    text-align: center;
     position: relative;
-    background-color: bisque;
+    padding: 1em 0 0;
+
+    &::after {
+      content: "";
+      width: 50%;
+      height: 2px;
+      background-color: var(--accent);
+      position: absolute;
+      bottom: -8px;
+      left: 25%;
+    }
+  }
+
+  .portfolio__cards {
+    display: grid;
+    grid:
+      repeat(6, 1fr) / 1em repeat(4, 1fr)
+      1em;
+    position: relative;
+
+    :nth-of-type(1) {
+      grid-column: 2 / span 2;
+      grid-row: 2 / span 2;
+    }
+
+    :nth-of-type(2) {
+      grid-column: 3 / span 2;
+      grid-row: 3 / span 2;
+    }
+
+    :nth-of-type(3) {
+      grid-column: 4 / span 2;
+      grid-row: 4 / span 2;
+    }
+
+    > * {
+      scale: 1;
+      transition: scale 60ms ease-out;
+      transform-origin: bottom left;
+      background-color: var(--light);
+    }
+
+    > *:hover {
+      scale: 1.07;
+      transition: 80ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      z-index: 2;
+      transform: rotate(-2deg) translateY(-10%);
+    }
+    /* :nth-of-type(2):hover {
+        transform: translateX(-200%);
+      } */
+    /* :nth-of-type(2):hover {
+   /* This is for tackling a specific card  more deeply if needed
+  } */
+  }
+  .btn {
+    padding: 1em;
+    place-self: end;
   }
 </style>

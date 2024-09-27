@@ -4,17 +4,19 @@
 
 <div class="wrapper">
   <div class="text">
-    Currently, I'm enrolled in Multimedia Design at KEA in Copenhagen, where I
-    found myself falling madly, deeply in love with the intricacies and
-    processes of web development. Prior to this, I went to a heavily art-focused
+    Currently, I'm enrolled in Multimedia Design at KEA, Copenhagen, where I
+    have found myself falling madly in love with the intricacies and processes
+    of web design and development. Prior to this, I went to an art-focused
     highschool, and have studied courses within several different art fields,
-    such as Landscape Architecture and Comics Creation. However, it was in
-    frontend development that I truly found my place. It is logical, but yet
-    messy, nothing makes sense, but at the same time, everything is just crystal
-    clear. This just happens to be the area where my many years of experience in
-    graphic design fit like a glove, since I get to use my eye for the visuals
-    together with the technical demands of the web, allowing me to blend
-    aesthetics with functionality.
+    such as <em>Landscape Architecture</em> and <em>Comics Creation</em>.
+    However, it was in frontend development that I truly found my place. This
+    just happens to be the area where my many years of experience in graphic
+    design fit like a glove, since I get to use my eye for the visuals together
+    with the technical demands of the web,
+    <span>
+      allowing me to blend
+      <em>aesthetics</em> with <em>functionality.</em>
+    </span>
   </div>
 
   <div class="bottom">
@@ -107,6 +109,16 @@
 
     place-self: center;
     padding: clamp(0.5rem, 1.2353rem + -1.1765vw, 1rem);
+
+    em {
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 0.3ex;
+      text-underline-offset: 0.4ex;
+    }
+    span {
+      font-weight: 600;
+    }
   }
 
   .bottom {

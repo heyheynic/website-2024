@@ -93,7 +93,7 @@ const experienceList = [
 <style>
   .wrapper {
     grid-column: main;
-    height: 110dvh;
+    height: 105dvh;
     color: var(--light);
     display: grid;
     grid: auto 1fr auto / 1fr;
@@ -103,8 +103,8 @@ const experienceList = [
     grid-row: 1;
     grid-column: 1/-1;
     text-align: center;
-    padding: 0 0;
     position: relative;
+    padding: 1em 0 0;
 
     &::after {
       content: "";
@@ -124,6 +124,7 @@ const experienceList = [
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2em;
     align-self: center;
+    padding: 2em 0 0;
 
     li {
       list-style: disc;

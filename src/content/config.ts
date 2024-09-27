@@ -32,7 +32,8 @@ const portfolioCollection = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
-      img: image().optional(),
+      // img: image().optional(),
+      img: z.string(),
       altText: z.string().optional(),
 
     }),
@@ -48,7 +49,7 @@ const team = defineCollection({
       email: z.string().optional(),
       // role: z.enum(["Software", "Design", "Marketing"]),
       role: z.string().optional(),
-      img: image(),
+      img: z.string(),
     }),
 });
 

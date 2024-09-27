@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import PrimaryBtn from "./PrimaryBtn.astro";
 import type { CollectionEntry } from "astro:content";
@@ -14,8 +15,11 @@ const { post } = Astro.props;
 
 const { img, altText, title, description } = post.data;
 
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/portfolio/images/*.{jpeg,jpg,png,gif,webp}');
 
-
+if (!images[`/src/content/portfolio/images/${img}`]) {
+  throw new Error(`Image "${img}" not found in the assets folder.`);
+}
 
 
 ---
@@ -24,7 +28,7 @@ const { img, altText, title, description } = post.data;
   <div class="project__image">
     <div class="img__border">
       <Image
-        src={img}
+        src={images[`/src/content/portfolio/images/${img}`]()}
         alt={altText}
         format="avif"
       />
