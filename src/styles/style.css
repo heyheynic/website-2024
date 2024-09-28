@@ -35,6 +35,7 @@ body {
   color: var(--dark);
   font-size: var(--size-0);
   line-height: 1.7;
+  letter-spacing: 0.5px;
   font-family: var(--sans);
 }
 

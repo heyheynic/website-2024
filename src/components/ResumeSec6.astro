@@ -7,11 +7,15 @@ import ResumePortfolioCard from "./ResumePortfolioCard.astro";
   <h2>Projects</h2>
 
   <div class="portfolio__cards">
-    <ResumePortfolioCard img="bird-game.png" altText="hej" />
-    <ResumePortfolioCard img="vild-mad.png" altText="hej" />
-    <ResumePortfolioCard img="mep.jpeg" altText="hej" />
-    <!-- <ResumePortfolioCard />
-    <ResumePortfolioCard /> -->
+    <ResumePortfolioCard img="bird-game.png" altText="hej" cardTitle="Birds in distress" cardDesc="This is a game I created in my first semester at KEA. The goal behind this were to get an understanding of Javascript, but also to plan a gameplay and create our own assets. " />
+
+    <ResumePortfolioCard img="vild-mad.png" altText="hej" cardTitle="Vild Mad" cardDesc="" />
+
+    <ResumePortfolioCard img="np.png" altText="hej" cardTitle="Nintendopusheren" cardDesc=""/>
+
+    <ResumePortfolioCard img="first-portfolio02.png" altText="hej" cardTitle="First portfolio" cardDesc="" />
+
+    <ResumePortfolioCard img="figma-code01.png" altText="hej" cardTitle="Figma to code" cardDesc=""/>
   </div>
 
   <div class="btn">
@@ -45,53 +49,22 @@ import ResumePortfolioCard from "./ResumePortfolioCard.astro";
 
   .portfolio__cards {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(420px, 1fr) );
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    padding: 2em 0;
     gap: 1em;
-    place-items: center;
-  }
-
- /* .portfolio__cards {
-    display: grid;
-    grid:
-      repeat(6, 1fr) / 1em repeat(4, 1fr)
-      1em;
-    position: relative;
-
-    :nth-of-type(1) {
-      grid-column: 2 / span 2;
-      grid-row: 2 / span 2;
-    }
-
-    :nth-of-type(2) {
-      grid-column: 3 / span 2;
-      grid-row: 3 / span 2;
-    }
-
-    :nth-of-type(3) {
-      grid-column: 4 / span 2;
-      grid-row: 4 / span 2;
-    }
 
     > * {
-      scale: 1;
-      transition: scale 60ms ease-out;
-      transform-origin: bottom left;
-      background-color: var(--light);
+      width: 100%;
     }
 
-    > *:hover {
-      scale: 1.07;
-      transition: 80ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-      z-index: 2;
-      transform: rotate(-2deg) translateY(-10%);
+    /* Makes last child in case of odd number, span the grid columns furthest down */
+    @media (min-width: 768px) {
+      *:nth-child(odd):last-child {
+        grid-column: span 2;
+      }
     }
-    /* :nth-of-type(2):hover {
-        transform: translateX(-200%);
-      } */
-    /* :nth-of-type(2):hover {
-   /* This is for tackling a specific card  more deeply if needed
-  } */
- /* } */
+  }
+
   .btn {
     padding: 1em;
     place-self: end;
