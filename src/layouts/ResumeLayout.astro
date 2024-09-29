@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-const { pageTitle } = Astro.props;
+const { pageTitle, metaDesc } = Astro.props;
 ---
 
 <html lang="en">
@@ -11,6 +11,9 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <meta
+      name="description"
+      content={metaDesc} />
   </head>
   <body>
     <slot />

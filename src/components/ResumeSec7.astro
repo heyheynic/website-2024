@@ -1,16 +1,57 @@
 ---
+import ContactForm from "./ContactForm.astro";
+
 
 ---
 
-<div class="font">playing</div>
+<div class="wrapper">
+  <h2>Contact</h2>
+  <h3></h3>
+  <div class="links">
+    <p>
+      You can have a look at my
+      <a
+        href="https://github.com/heyheynic"
+        target="_blank"
+        aria-label="Link to my GitHub account">Github</a>.
+    </p>
+
+    <p>
+      Or say hi to me on my
+      <a
+        href="https://www.linkedin.com/in/heyheywood/"
+        target="_blank"
+        aria-label="Link to my Linkedin account">Linkedin</a>.
+    </p>
+  </div>
+  <ContactForm/> 
+</div>
 
 <style>
-  div {
+  .wrapper {
     display: grid;
-    grid: auto/ auto;
+    grid: auto 1fr auto / 1fr;
     place-content: center;
     height: 100dvh;
+  }
+
+  h2 {
+    text-align: center;
     position: relative;
-    background-color: rgb(90, 69, 43);
+    padding: 1em 0 0;
+
+    &::after {
+      content: "";
+      width: 50%;
+      height: 2px;
+      background-color: var(--accent);
+      position: absolute;
+      bottom: -8px;
+      left: 25%;
+    }
+  }
+
+  form {
+    background-color: blue;
   }
 </style>

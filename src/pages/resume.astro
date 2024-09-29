@@ -16,7 +16,8 @@
 // Sixth section will be where I share some projects I have been working on, portfolio etc.
 
 // And last section will be the CTA, with links to socials and perhaps a form to contact me.
-const pageTitle = "Nicole Heywood";
+const pageTitle = "Nicole Heywood resume";
+const metaDesc = "";
 import ResumeLayout from "../layouts/ResumeLayout.astro";
 import ResumeHeader from "../components/ResumeHeader.astro";
 // import ResumeSec1 from "../components/ResumeSec1.astro";
@@ -43,7 +44,6 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
     <div class="section four full">
       <ResumeSec4 />
     </div>
-    
     <div class="section five full">
       <div class="ground"></div>
       <ResumeSec5 />
@@ -51,7 +51,7 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
     <div class="section six main">
       <ResumeSec6 />
     </div>
-    <div class="section seven main">
+    <div class="section seven full">
       <ResumeSec7 />
     </div>
   </div>
@@ -63,6 +63,8 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
     grid-column: full;
     display: grid;
     grid-template-columns: subgrid;
+
+
 
     .five {
       background-color: var(--dark);
