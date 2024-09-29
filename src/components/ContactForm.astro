@@ -2,67 +2,80 @@
 
 ---
 
-<p>
-    Here's an example of a Netlify Form! When you fill this out, the submissions
-    can be found in the Netlify Admin site.
-  </p>
-  <div class="feedback-form">
-    <form
-      data-netlify="true"
-      netlify-honeypot
-      name="feedback"
-      method="POST"
-      action="/success"
-    >
-      <p class="hidden">
-        <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
-        </label>
-      </p>
-      <input type="hidden" name="form-name" value="feedback" />
-      <label for="name">Name</label>
-      <input id="name" type="text" name="name" />
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" required />
-      <label for="feedback">What is your feedback?</label>
-      <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-  
-  <style>
-    .feedback-form {
-      margin: 40px 40px;
-      min-width: 250px;
-      width: 45%;
+<div class="wrapper-form">
+<h3>Or you could just message me here:</h3>
+
+  <form
+    class="feedback-form"
+    data-netlify="true"
+    netlify-honeypot
+    name="feedback"
+    method="POST"
+    action="/success"
+  >
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
+    <input type="hidden" name="form-name" value="feedback" />
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="name" />
+    <label for="email">Email:</label>
+    <input id="email" type="email" name="email" required />
+    <label for="feedback">Let's have a chat!</label>
+    <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<style>
+  .wrapper-form {
+    display: grid;
+    grid: 1fr/ 1fr;
+    place-items: center;
+  }
+  .feedback-form {
+    margin: 40px 40px;
+    min-width: 250px;
+    width: 45%;
+    display: grid;
+  }
+  label {
+    font-size: 16px;
+  }
+  input,
+  textarea{
+    border-radius: 5px;
+    border: 1px solid #cbd5e1;
+    font-size: inherit;
+    margin: 15px 0;
+    padding: 12px 20px;
+    width: 100%;
+  }
+  button {
+    background-color: var(--accent);
+    border: none;
+    padding: 0.5em 2em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 5px 5px var(--dark);
+    cursor: pointer;
+    color: var(--cc-dark);
+    place-self: end;
+    width: fit-content;
+    &:hover {
+      background-color: var(--hover-btn);
     }
-    label {
-      font-size: 16px;
-    }
-    input,
-    textarea,
-    button {
-      border-radius: 5px;
-      border: 1px solid #cbd5e1;
-      font-size: inherit;
-      margin: 15px 0;
-      padding: 12px 20px;
-      width: 100%;
-    }
-    button {
-      background-color: #2bdcd2;
-      border: 1px solid #2bdcd2;
-      color: #1e293b;
-      font-size: 16px;
-      width: 50%;
-    }
-    .hidden {
-      clip: rect(0 0 0 0);
-      clip-path: inset(50%);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      width: 1px;
-    }
-  </style>
+  }
+
+  .hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+</style>

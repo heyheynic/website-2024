@@ -1,38 +1,35 @@
 ---
 import ContactForm from "./ContactForm.astro";
-
-
 ---
 
 <div class="wrapper">
   <h2>Contact</h2>
-  <h3></h3>
+
   <div class="links">
+    <h3>I'm currently looking for internships in spring 2025!</h3>
     <p>
       You can have a look at my
       <a
         href="https://github.com/heyheynic"
         target="_blank"
-        aria-label="Link to my GitHub account">Github</a>.
-    </p>
-
-    <p>
-      Or say hi to me on my
+        aria-label="Link to my GitHub account">Github</a
+      >, or say hi to me on my
       <a
         href="https://www.linkedin.com/in/heyheywood/"
         target="_blank"
-        aria-label="Link to my Linkedin account">Linkedin</a>.
+        aria-label="Link to my Linkedin account">Linkedin</a
+      >.
     </p>
   </div>
-  <ContactForm/> 
+  <ContactForm />
 </div>
 
 <style>
   .wrapper {
     display: grid;
-    grid: auto 1fr auto / 1fr;
-    place-content: center;
-    height: 100dvh;
+    grid: auto 1fr auto/ 1fr;
+    justify-content: center;
+    height: 100%;
   }
 
   h2 {
@@ -51,7 +48,9 @@ import ContactForm from "./ContactForm.astro";
     }
   }
 
-  form {
-    background-color: blue;
+  .links {
+    padding: clamp(2rem, 0.8rem + 5.12vw, 4rem) 0;
+    place-self: center;
+
   }
 </style>
