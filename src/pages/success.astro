@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+
+const pageTitle = "Message sent!"
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <main>
+      <h1>Submission Received!</h1>
+      <p>
+        Thank you for your feedback! Head back to the <a href="/">home page</a>.
+      </p>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+.container {
+	width: 300px;
+	border-radius: 50%;
+	aspect-ratio: 1;
+object-fit: cover;
+}
+
+</style>
