@@ -34,7 +34,7 @@ const portfolioCollection = defineCollection({
       description: z.string(),
       // img: image().optional(),
       img: z.string(),
-      altText: z.string().optional(),
+      altText: z.string(),
 
     }),
 });

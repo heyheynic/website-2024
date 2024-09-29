@@ -2,8 +2,9 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { getCollection, type CollectionEntry } from "astro:content";
-import { getEntries } from "astro:content";
 import { Image } from "astro:assets";
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/portfolio/images/*.{jpeg,jpg,png,gif,webp}');
 
 export async function getStaticPaths() {
   const portfolio = await getCollection("portfolio");
@@ -14,11 +15,17 @@ export async function getStaticPaths() {
 }
 
 type Props = {
-  entry: CollectionEntry<"posts">;
+  entry: CollectionEntry<"portfolio">;
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const imagePath = `/src/content/portfolio/images/${entry.data.img}`;
+const imageImport = images[imagePath];
+
+
+const image = await imageImport();
 
 ---
 
@@ -26,7 +33,7 @@ const { Content } = await entry.render();
 <BaseLayout>
 
   <h1>{entry.data.title}</h1>
-  <Image src={entry.data.img} alt={entry.data.altText}/>
+  <Image src={image.default} alt={entry.data.altText} format="avif"/>
   <Content />
 
 </BaseLayout>
