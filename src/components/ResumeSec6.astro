@@ -23,7 +23,7 @@ import ResumePortfolioCard from "./ResumePortfolioCard.astro";
   </div>
 
   <div class="btn">
-    <PrimaryBtn btnText="See more" src="/portfolio"/>
+    <PrimaryBtn btnText="See more" src="/portfolio" ariaLabel="Link to portfolio"/>
   </div>
 </div>
 
@@ -38,7 +38,7 @@ import ResumePortfolioCard from "./ResumePortfolioCard.astro";
   h2 {
     text-align: center;
     position: relative;
-    padding: 1em 0 0;
+    margin: clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem) 0 clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem);
 
     &::after {
       content: "";

@@ -1,8 +1,8 @@
 ---
-const { btnText, src } = Astro.props;
+const { btnText, src, ariaLabel } = Astro.props;
 ---
 
-<a href=`${src}`>{btnText}</a>
+<a href=`${src}`  aria-label={ariaLabel}>{btnText}</a>
 
 <style>
   a {
