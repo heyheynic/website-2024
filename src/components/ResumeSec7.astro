@@ -52,5 +52,20 @@ import ContactForm from "./ContactForm.astro";
     padding: clamp(2rem, 0.8rem + 5.12vw, 4rem) 0;
     place-self: center;
 
+    a {
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 0.3ex;
+      text-underline-offset: 0.4ex;
+
+      &:hover {
+
+        color: var(--accent);
+        font-style: italic;
+      text-decoration-thickness: 0.3ex;
+
+
+      }
+    }
   }
 </style>
