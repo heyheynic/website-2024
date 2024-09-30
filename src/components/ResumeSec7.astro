@@ -26,6 +26,12 @@ import ContactForm from "./ContactForm.astro";
 
 <style>
   .wrapper {
+    outline: solid 1px var(--dark);
+    background-color: rgb(255, 255, 249);
+    margin: clamp(0.5625rem, 0.3rem + 1.12vw, 1rem) 0;
+    padding: 1em 1.5em;
+
+    
     display: grid;
     grid: auto 1fr auto/ 1fr;
     justify-content: center;
@@ -49,7 +55,7 @@ import ContactForm from "./ContactForm.astro";
   }
 
   .links {
-    padding: clamp(0.5625rem, 0.3rem + 1.12vw, 1rem) 0 clamp(2rem, 0.8rem + 5.12vw, 4rem) ;
+    padding: clamp(0.5625rem, 0.3rem + 1.12vw, 1rem) 0 clamp(2rem, 0.8rem + 5.12vw, 4rem);
     place-self: center;
 
     a {
