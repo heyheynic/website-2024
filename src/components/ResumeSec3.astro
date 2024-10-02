@@ -5,12 +5,10 @@
 <style>
   .sec3 {
     display: grid;
-    grid: 1fr/ 1fr;
+    grid: auto/ auto;
     place-content: center;
     /* height: 100svh; */
-    height: 100%;
-    position: relative;
-    padding: 3em 0;
+    padding: 2em 0;
     font-size: clamp(
       2.625rem,
       1.4455rem + 5.8974vw,
@@ -22,12 +20,103 @@
 
 <div class="font sec3" id="sec3">
   <span>
-    I want to create <em class="beautiful">beautiful</em>, <em class="sustainable">sustainable</em> and
+    I want to create <em class="beautiful">beautiful</em>, <em
+      class="sustainable">sustainable</em
+    > and
     <em class="fun">fun</em> digital solutions
   </span>
 </div>
 
-<!-- <script>
+<script>
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  //////// Phase one of scrolling, big text
+  gsap.fromTo(
+    ".sec3",
+    {
+      opacity: 0,
+      y: 200,
+      scale: 0.5,
+      scrollTrigger: {
+        trigger: ".sec3",
+        end: "top center",
+      },
+    },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      scrollTrigger: {
+        trigger: ".sec3",
+        start: "top center",
+        // end: "bottom+=50% center",
+        end: "bottom+=100% center",
+        pin: true,
+        pinSpacing: true,
+        scrub: true,
+        markers: true,
+      },
+      
+    }
+  );
+
+  gsap.fromTo(
+    ".beautiful",
+    { color: gsap.getProperty(".beautiful", "--dark") }, // Initial color
+    {
+      color: gsap.getProperty(".beautiful", "--accent"), // accent color on scroll
+      scrollTrigger: {
+        trigger: ".sec3",
+        start: "top+=20 center", // Starts after the opacity transition
+        end: "bottom center", // Takes up the second half of the scroll
+        scrub: true,
+        markers: true,
+      },
+    }
+  );
+
+  /////// Phase two of scrolling, this animates the <em> inside the span
+
+  //   gsap.fromTo(".beautiful",
+  //     { color: gsap.getProperty(".beautiful", "--dark") },  // Initial color
+  //     {
+  //       color: gsap.getProperty(".beautiful", "--accent"), // accent color on scroll
+  //       scrollTrigger: {
+  //         trigger: "#sec3",
+  //         start: "center center",
+  //         end: "bottom center",
+  //         scrub: true,
+  //         markers: false
+  //       }
+  //     });
+
+  //   gsap.fromTo(".sustainable",
+  //     { color: gsap.getProperty(".sustainable", "--dark") },
+  //     {
+  //       color: gsap.getProperty(".sustainable", "--accent"),
+  //       scrollTrigger: {
+  //         trigger: "#sec3",
+  //         start: "top+=20% center",
+  //         end: "end end",
+  //         scrub: true,
+  //       }
+  //     });
+
+  //   gsap.fromTo(".fun",
+  //     { color: gsap.getProperty(".fun", "--dark") },
+  //     {
+  //       color: gsap.getProperty(".fun", "--accent"),
+  //       scrollTrigger: {
+  //         trigger: "#sec3",
+  //         start: "top+=40% center",
+  //         end: "center center",
+  //         scrub: true,
+  //       }
+  //     });
+</script>
+<!-- 
+<script>
   // gsap import
   // import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -36,17 +125,17 @@
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".two",
-      start: "top center",
-      end: "bottom+=500 center",
+      start: "center center",
+      end: "+=100%",
 
 
    
-      endTrigger: ".four",
+      endTrigger: ".three",
       // toggleActions: "none",
       scrub: true,
       // pin: true,
       // pinSpacing: true,
-      markers: true,
+      // markers: true,
     },
   });
 
@@ -64,47 +153,7 @@
     })
     .to(".three", {
       scale: 1, // Back to normal size
-      ease: "bounce.out", // Adds a bounce at the end
+      // ease: "bounce.out", // Adds a bounce at the end
 
     });
-</script> -->
-<!-- <script>
-  import { gsap } from "gsap";
-  // gsap.fromTo(
-  //   document.querySelector(".sec3"),
-  //   { opacity: 0, scale: 0.5 },
-  //   { opacity: 1, duration: 1, scale: 1 }
-  // );
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-
-ScrollTrigger.create({
-  trigger: "#sec3",
-  start: "top 50%",
-  end: "bottom 200px",
-  pin: "#big__text",
-})
-
-
-</script> -->
-
-<!-- 
-<script>
-  import { gsap } from "gsap";
-
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".sec3",
-      pin: true,
-      start: "top top",
-      end: "+=500",
-      scrub: 1,
-    },
-  });
-
-  tl.from(".sec3", {translateY: 100}).to(".sec3", { translateY: -360 });
 </script> -->

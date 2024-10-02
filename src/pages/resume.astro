@@ -49,28 +49,24 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
     <div class="section four full">
       <ResumeSec4 />
     </div>
-    <div class="spacer"></div>
+
     <div class="section five full">
       <div class="ground"></div>
       <ResumeSec5 />
     </div>
-    <div class="spacer"></div>
+
 
     <div class="section six main">
       <ResumeSec6 />
     </div>
-    <div class="spacer"></div>
+
 
     <div class="section seven main">
       <ResumeSec7 />
     </div>
   </div>
-  <script
-    is:inline
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
-  ></script>
 
-  <script>
+  <!-- <script>
     // gsap import
     // import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -89,7 +85,7 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
         scrub: true,
         // pin: true,
         // pinSpacing: true,
-        markers: true,
+        // markers: true,
       },
     });
 
@@ -107,10 +103,10 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
       })
       .to(".three", {
         scale: 1, // Back to normal size
-        ease: "bounce.out", // Adds a bounce at the end
+        // ease: "bounce.out", // Adds a bounce at the end
 
       });
-  </script>
+  </script> -->
 </ResumeLayout>
 
 <style>
