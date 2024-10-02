@@ -2,7 +2,7 @@
 import ContactForm from "./ContactForm.astro";
 ---
 
-<div class="wrapper">
+<div class="wrapper sec7 form">
   <h2>Contact</h2>
 
   <div class="links">
@@ -75,3 +75,32 @@ import ContactForm from "./ContactForm.astro";
     }
   }
 </style>
+
+<script>
+        // box-shadow: 5px 5px var(--dark);
+
+        import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  //////// Phase one of scrolling, big text
+  let tl = gsap.timeline({
+    
+    scrollTrigger: {
+      trigger: ".sec7",
+      start: "start center",
+   
+      end: "center center",
+      scrub: true,
+
+     
+      // markers: true,
+    },
+  });
+
+  tl.to(
+  ".sec7",
+  { boxShadow: "5px 5px var(--dark)"}
+);
+
+</script>
+

@@ -7,8 +7,7 @@
     display: grid;
     grid: auto/ auto;
     place-content: center;
-    /* height: 100svh; */
-    padding: 2em 0;
+    height: 200%;
     font-size: clamp(
       2.625rem,
       1.4455rem + 5.8974vw,
@@ -32,49 +31,73 @@
   gsap.registerPlugin(ScrollTrigger);
 
   //////// Phase one of scrolling, big text
-  gsap.fromTo(
-    ".sec3",
-    {
-      opacity: 0,
-      y: 200,
-      scale: 0.5,
-      scrollTrigger: {
-        trigger: ".sec3",
-        end: "top center",
-      },
+  let tl = gsap.timeline({
+    // top: "0%",
+    scrollTrigger: {
+      trigger: ".sec2",
+      start: "end end",
+      // end: ".sec4+=150%",
+      endTrigger: ".sec3",
+      // end: "bottom+=150% center",
+      end: "center center",
+      scrub: true,
+      pin: true,
+      pinSpacing: true,
+      // markers: true,
     },
-    {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      scrollTrigger: {
-        trigger: ".sec3",
-        start: "top center",
-        // end: "bottom+=50% center",
-        end: "bottom+=100% center",
-        pin: true,
-        pinSpacing: true,
-        scrub: true,
-        markers: true,
-      },
-      
-    }
+  });
+
+  tl.fromTo(
+    "#sec3",
+    { opacity: 0, y: 200, scale: 0.5, },
+    { opacity: 1, y: 0, scale: 1, duration: 2 }
   );
 
-  gsap.fromTo(
+  /////// Phase two of scrolling, this animates the <em> inside the span
+  let tlPhase2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec3",
+      start: "top+=45% center",
+      end: "bottom center",
+      scrub: true,
+      // markers: true,
+    },
+  });
+
+  tlPhase2.fromTo(
     ".beautiful",
-    { color: gsap.getProperty(".beautiful", "--dark") }, // Initial color
-    {
-      color: gsap.getProperty(".beautiful", "--accent"), // accent color on scroll
-      scrollTrigger: {
-        trigger: ".sec3",
-        start: "top+=20 center", // Starts after the opacity transition
-        end: "bottom center", // Takes up the second half of the scroll
-        scrub: true,
-        markers: true,
-      },
-    }
+    { color: "var(--dark)" }, // Change this to use the correct CSS variable
+    { color: "var(--accent)" }
   );
+
+  tlPhase2.fromTo(
+    ".sustainable",
+    { color: "var(--dark)" }, // OG colour
+    { color: "var(--accent)" } // new colour
+  );
+
+  tlPhase2.fromTo(
+  ".fun",
+  { color: "var(--dark)" },
+  { color: "var(--accent)" }
+);
+
+
+
+  // gsap.fromTo(
+  //   ".sustainable",
+  //   { color: "var(--dark)" }, // Change this to use the correct CSS variable
+  //   {
+  //     color: "var(--accent)",
+  //     scrub: true,
+  //     scrollTrigger: {
+  //       trigger: "#sec3",
+  //       start: "center center",
+  //       end: "end end",
+  //       scrub: true,
+  //     },
+  //   }
+  // );
 
   /////// Phase two of scrolling, this animates the <em> inside the span
 

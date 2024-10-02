@@ -24,7 +24,72 @@ const experienceList = [
 ];
 ---
 
-<div class="wrapper">
+<style>
+  .wrapper {
+    grid-column: main;
+    height: 100%;
+    color: var(--light);
+    display: grid;
+    grid: auto 1fr auto / 1fr;
+  }
+
+  h2 {
+    grid-row: 1;
+    grid-column: 1/-1;
+    text-align: center;
+    position: relative;
+    margin: clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem) 0 clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem);
+
+    &::after {
+      content: "";
+      width: 50%;
+      height: 2px;
+      background-color: var(--accent);
+      position: absolute;
+      bottom: -8px;
+      left: 25%;
+    }
+  }
+
+  .list {
+    grid-row: 2;
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2em;
+    align-self: center;
+    padding: clamp(2rem, 1.4rem + 2.56vw, 3rem) 0 clamp(2rem, 1.4rem + 2.56vw, 3rem);
+
+    li {
+      list-style: disc;
+      list-style-position: inside;
+    }
+
+    > * {
+      justify-self: center;
+    }
+  }
+
+  .lang {
+    place-self: center;
+    padding: 1em 0 3em;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2em;
+
+    svg {
+      width: fit-content;
+    }
+
+    p {
+      align-self: center;
+    }
+  }
+</style>
+
+
+<div class="wrapper sec5">
   <h2>Toolbox</h2>
   <div class="list">
     <div class="comfort">
@@ -90,66 +155,26 @@ const experienceList = [
   </div>
 </div>
 
-<style>
-  .wrapper {
-    grid-column: main;
-    height: 100%;
-    color: var(--light);
-    display: grid;
-    grid: auto 1fr auto / 1fr;
-  }
+<script>
 
-  h2 {
-    grid-row: 1;
-    grid-column: 1/-1;
-    text-align: center;
-    position: relative;
-    margin: clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem) 0 clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem);
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+//   gsap.registerPlugin(ScrollTrigger);
 
-    &::after {
-      content: "";
-      width: 50%;
-      height: 2px;
-      background-color: var(--accent);
-      position: absolute;
-      bottom: -8px;
-      left: 25%;
-    }
-  }
 
-  .list {
-    grid-row: 2;
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2em;
-    align-self: center;
-    padding: clamp(2rem, 1.4rem + 2.56vw, 3rem) 0 clamp(2rem, 1.4rem + 2.56vw, 3rem);
+  // gsap.fromTo(".sec5", 
+  // {   duration: 0.5, backgroundColor: "var(--dark)"},  // Initial styles
+  //     {
+  //    padding: "30em 0 0",
+  //       duration: 3,
+  //       scrollTrigger: {
+  //         trigger: ".sec5",
+  //         start: "end end",     // Adjust the start point
+  //         end: "bottom+=200% center",       // Adjust the end point if needed
+  //         pin: true,
+  //         pinSpacing: true,
+  //         scrub: true,
+  //         markers: true          // Set to false in production
+  //       }
+  //   });
 
-    li {
-      list-style: disc;
-      list-style-position: inside;
-    }
-
-    > * {
-      justify-self: center;
-    }
-  }
-
-  .lang {
-    place-self: center;
-    padding: 1em 0 3em;
-    position: relative;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 2em;
-
-    svg {
-      width: fit-content;
-    }
-
-    p {
-      align-self: center;
-    }
-  }
-</style>
+</script>
