@@ -2,18 +2,15 @@
 
 ---
 
-<div class="font">
-  I want to create beautiful, sustainable and fun digital solutions
-</div>
-
 <style>
-  div {
+  .sec3 {
     display: grid;
-    grid: auto/ auto;
+    grid: 1fr/ 1fr;
     place-content: center;
-    height: 80svh;
+    /* height: 100svh; */
+    height: 100%;
     position: relative;
-    padding-top: 3em;
+    padding: 3em 0;
     font-size: clamp(
       2.625rem,
       1.4455rem + 5.8974vw,
@@ -22,3 +19,92 @@
     line-height: 1.22;
   }
 </style>
+
+<div class="font sec3" id="sec3">
+  <span>
+    I want to create <em class="beautiful">beautiful</em>, <em class="sustainable">sustainable</em> and
+    <em class="fun">fun</em> digital solutions
+  </span>
+</div>
+
+<!-- <script>
+  // gsap import
+  // import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".two",
+      start: "top center",
+      end: "bottom+=500 center",
+
+
+   
+      endTrigger: ".four",
+      // toggleActions: "none",
+      scrub: true,
+      // pin: true,
+      // pinSpacing: true,
+      markers: true,
+    },
+  });
+
+  tl.from(".three", { 
+    opacity: 0,  // Invisible from start
+    scale: 0, 
+    translateY: 200, // Makes it appear from bottom
+
+  })
+  .to(".three", {
+      opacity: 1,
+      scale: 1.1, // Slightly over-scale
+      // translateY: -200,
+
+    })
+    .to(".three", {
+      scale: 1, // Back to normal size
+      ease: "bounce.out", // Adds a bounce at the end
+
+    });
+</script> -->
+<!-- <script>
+  import { gsap } from "gsap";
+  // gsap.fromTo(
+  //   document.querySelector(".sec3"),
+  //   { opacity: 0, scale: 0.5 },
+  //   { opacity: 1, duration: 1, scale: 1 }
+  // );
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.create({
+  trigger: "#sec3",
+  start: "top 50%",
+  end: "bottom 200px",
+  pin: "#big__text",
+})
+
+
+</script> -->
+
+<!-- 
+<script>
+  import { gsap } from "gsap";
+
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec3",
+      pin: true,
+      start: "top top",
+      end: "+=500",
+      scrub: 1,
+    },
+  });
+
+  tl.from(".sec3", {translateY: 100}).to(".sec3", { translateY: -360 });
+</script> -->

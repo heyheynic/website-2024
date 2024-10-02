@@ -16,8 +16,8 @@
 // Sixth section will be where I share some projects I have been working on, portfolio etc.
 
 // And last section will be the CTA, with links to socials and perhaps a form to contact me.
+
 const pageTitle = "Nicole Heywood";
-const metaDesc = "";
 import ResumeLayout from "../layouts/ResumeLayout.astro";
 import ResumeHeader from "../components/ResumeHeader.astro";
 // import ResumeSec1 from "../components/ResumeSec1.astro";
@@ -29,7 +29,10 @@ import ResumeSec6 from "../components/ResumeSec6.astro";
 import ResumeSec7 from "../components/ResumeSec7.astro";
 ---
 
-<ResumeLayout pageTitle={pageTitle} metaDesc="Nicole Heywood, web developer, web designer, illustrator and graphic designer based in Copenhagen. Looking for internship in spring 2025. Multimediestuderende, KEA, der søger praktikplads forår 2025.">
+<ResumeLayout
+  pageTitle={pageTitle}
+  metaDesc="Nicole Heywood, web developer, web designer, illustrator and graphic designer based in Copenhagen. Looking for internship in spring 2025. Multimediestuderende, KEA, der søger praktikplads forår 2025."
+>
   <ResumeHeader />
   <div class="wrapper">
     <!-- <div class="section 1 main">
@@ -38,23 +41,76 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
     <div class="section two main">
       <ResumeSec2 />
     </div>
+
     <div class="section three main">
       <ResumeSec3 />
     </div>
+
     <div class="section four full">
       <ResumeSec4 />
     </div>
+    <div class="spacer"></div>
     <div class="section five full">
       <div class="ground"></div>
       <ResumeSec5 />
     </div>
+    <div class="spacer"></div>
+
     <div class="section six main">
       <ResumeSec6 />
     </div>
+    <div class="spacer"></div>
+
     <div class="section seven main">
       <ResumeSec7 />
     </div>
   </div>
+  <script
+    is:inline
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+  ></script>
+
+  <script>
+    // gsap import
+    // import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".two",
+        start: "center center",
+        end: "+=100%",
+
+
+     
+        endTrigger: ".three",
+        // toggleActions: "none",
+        scrub: true,
+        // pin: true,
+        // pinSpacing: true,
+        markers: true,
+      },
+    });
+
+    tl.from(".three", { 
+      opacity: 0,  // Invisible from start
+      scale: 0, 
+      translateY: 200, // Makes it appear from bottom
+
+    })
+    .to(".three", {
+        opacity: 1,
+        scale: 1.1, // Slightly over-scale
+        // translateY: -200,
+
+      })
+      .to(".three", {
+        scale: 1, // Back to normal size
+        ease: "bounce.out", // Adds a bounce at the end
+
+      });
+  </script>
 </ResumeLayout>
 
 <style>
@@ -87,13 +143,11 @@ import ResumeSec7 from "../components/ResumeSec7.astro";
     }
   }
 
-  .six{
-    padding: 3em 0 0; 
+  .six {
+    padding: 3em 0 0;
   }
 
   .seven {
-    padding: 3em 0 4em; 
-
+    padding: 3em 0 4em;
   }
-
 </style>
