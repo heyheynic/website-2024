@@ -7,7 +7,7 @@
     display: grid;
     grid: auto/ auto;
     place-content: center;
-    height: 200%;
+    /* height: 200%; */
     font-size: clamp(
       2.625rem,
       1.4455rem + 5.8974vw,
@@ -34,22 +34,21 @@
   let tl = gsap.timeline({
     // top: "0%",
     scrollTrigger: {
-      trigger: ".sec2",
-      start: "end end",
+      trigger: ".sec3",
+      start: "top center",
       // end: ".sec4+=150%",
-      endTrigger: ".sec3",
-      // end: "bottom+=150% center",
-      end: "center center",
+      endTrigger: ".sec2",
+      end: "center+=100% center",
       scrub: true,
       pin: true,
       pinSpacing: true,
-      // markers: true,
+      markers: false,
     },
   });
 
   tl.fromTo(
     "#sec3",
-    { opacity: 0, y: 200, scale: 0.5, },
+    { opacity: 0, y: 200, scale: 0.5 },
     { opacity: 1, y: 0, scale: 1, duration: 2 }
   );
 
@@ -58,9 +57,9 @@
     scrollTrigger: {
       trigger: ".sec3",
       start: "top+=45% center",
-      end: "bottom center",
+      end: "center center",
       scrub: true,
-      // markers: true,
+            // markers: true,
     },
   });
 
@@ -76,107 +75,5 @@
     { color: "var(--accent)" } // new colour
   );
 
-  tlPhase2.fromTo(
-  ".fun",
-  { color: "var(--dark)" },
-  { color: "var(--accent)" }
-);
-
-
-
-  // gsap.fromTo(
-  //   ".sustainable",
-  //   { color: "var(--dark)" }, // Change this to use the correct CSS variable
-  //   {
-  //     color: "var(--accent)",
-  //     scrub: true,
-  //     scrollTrigger: {
-  //       trigger: "#sec3",
-  //       start: "center center",
-  //       end: "end end",
-  //       scrub: true,
-  //     },
-  //   }
-  // );
-
-  /////// Phase two of scrolling, this animates the <em> inside the span
-
-  //   gsap.fromTo(".beautiful",
-  //     { color: gsap.getProperty(".beautiful", "--dark") },  // Initial color
-  //     {
-  //       color: gsap.getProperty(".beautiful", "--accent"), // accent color on scroll
-  //       scrollTrigger: {
-  //         trigger: "#sec3",
-  //         start: "center center",
-  //         end: "bottom center",
-  //         scrub: true,
-  //         markers: false
-  //       }
-  //     });
-
-  //   gsap.fromTo(".sustainable",
-  //     { color: gsap.getProperty(".sustainable", "--dark") },
-  //     {
-  //       color: gsap.getProperty(".sustainable", "--accent"),
-  //       scrollTrigger: {
-  //         trigger: "#sec3",
-  //         start: "top+=20% center",
-  //         end: "end end",
-  //         scrub: true,
-  //       }
-  //     });
-
-  //   gsap.fromTo(".fun",
-  //     { color: gsap.getProperty(".fun", "--dark") },
-  //     {
-  //       color: gsap.getProperty(".fun", "--accent"),
-  //       scrollTrigger: {
-  //         trigger: "#sec3",
-  //         start: "top+=40% center",
-  //         end: "center center",
-  //         scrub: true,
-  //       }
-  //     });
+  tlPhase2.fromTo(".fun", { color: "var(--dark)" }, { color: "var(--accent)" });
 </script>
-<!-- 
-<script>
-  // gsap import
-  // import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".two",
-      start: "center center",
-      end: "+=100%",
-
-
-   
-      endTrigger: ".three",
-      // toggleActions: "none",
-      scrub: true,
-      // pin: true,
-      // pinSpacing: true,
-      // markers: true,
-    },
-  });
-
-  tl.from(".three", { 
-    opacity: 0,  // Invisible from start
-    scale: 0, 
-    translateY: 200, // Makes it appear from bottom
-
-  })
-  .to(".three", {
-      opacity: 1,
-      scale: 1.1, // Slightly over-scale
-      // translateY: -200,
-
-    })
-    .to(".three", {
-      scale: 1, // Back to normal size
-      // ease: "bounce.out", // Adds a bounce at the end
-
-    });
-</script> -->
