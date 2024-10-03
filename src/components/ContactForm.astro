@@ -48,8 +48,12 @@
     border: 1px solid var(--dark);
     font-size: inherit;
     margin: 0 0 clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem);
-
     width: 100%;
+    &:focus{
+    box-shadow: 5px 5px var(--dark);
+    transition: 300ms ease-out box-shadow;
+
+    }
   }
   button {
     background-color: var(--accent);

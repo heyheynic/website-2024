@@ -57,23 +57,26 @@
     scrollTrigger: {
       trigger: ".sec3",
       start: "top+=45% center",
-      end: "center center",
+      end: "bottom center",
       scrub: true,
-            // markers: true,
+      // markers: true,
     },
   });
 
-  tlPhase2.fromTo(
-    ".beautiful",
-    { color: "var(--dark)" }, // Change this to use the correct CSS variable
-    { color: "var(--accent)" }
-  );
-
-  tlPhase2.fromTo(
-    ".sustainable",
-    { color: "var(--dark)" }, // OG colour
-    { color: "var(--accent)" } // new colour
-  );
-
-  tlPhase2.fromTo(".fun", { color: "var(--dark)" }, { color: "var(--accent)" });
+  tlPhase2
+    .fromTo(
+      ".beautiful",
+      { color: "var(--dark)" },
+      { color: "var(--accent)", duration: 0.5 }
+    )
+    .to(
+      ".sustainable",
+      { color: "var(--accent)", duration: 0.5 },
+      "<+=0.3" // Starts 0.3 seconds after the previous animation
+    )
+    .to(
+      ".fun",
+      { color: "var(--accent)", duration: 0.5 },
+      "<+=0.3" // Starts 0.3 seconds after the previous animation
+    );
 </script>
