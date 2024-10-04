@@ -15,13 +15,13 @@ const { post } = Astro.props;
 
 const { img, altText, title, description } = post.data;
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/portfolio/images/*.{jpeg,jpg,png,gif,webp}');
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/content/portfolio/images/*.{jpeg,jpg,png,gif,webp}"
+);
 
 if (!images[`/src/content/portfolio/images/${img}`]) {
   throw new Error(`Image "${img}" not found in the assets folder.`);
 }
-
-
 ---
 
 <article class="project">
@@ -53,6 +53,7 @@ if (!images[`/src/content/portfolio/images/${img}`]) {
     gap: 2em;
     padding: 1em 0 2em;
 
+    
     .project__image {
       display: grid;
       place-content: center;
