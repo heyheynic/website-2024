@@ -12,7 +12,7 @@
     overflow: hidden;
   }
 
-  .text {
+  .sec4__text {
     grid-row: 1/-1;
     grid-column: 1/-1;
     max-width: 500px;
@@ -28,18 +28,28 @@
       text-decoration-thickness: 0.3ex;
       text-underline-offset: 0.4ex;
     } */
+  }
 
+  em {
+    background-color: var(--accent);
+    padding: 2px 4px;
+    color: var(--light);
+  }
+  span {
+    font-weight: 600;
     em {
-      background-color: var(--accent);
-      padding: 2px 4px;
-      color: var(--light);
+      box-shadow: 5px 5px var(--dark);
     }
-    span {
-      font-weight: 600;
-      em {
-        box-shadow: 5px 5px var(--dark);
-      }
-    }
+  }
+  .sec4__text.mobile {
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    max-width: 500px;
+    position: relative;
+    z-index: 9;
+
+    place-self: center;
+    padding: 0 clamp(0rem, 2.2rem + -3.52vw, 1.375rem);
   }
 
   .bottom {
@@ -186,22 +196,38 @@
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.fromTo(
-    ".sec4__text",
-    { opacity: 0, translateY: 200, duration: 0.5 }, // Initial styles
-    {
-      opacity: 1, // Final styles
-      translateY: -100,
-      duration: 1,
-      scrollTrigger: {
-        trigger: "#sec4",
-        start: "center center",
-        end: "bottom+=40% center",
-        pin: true,
-        pinSpacing: true,
-        scrub: true,
-        markers: false,
-      },
-    }
-  );
+  // Function to detect app browsers
+  function isMobileBrowser() {
+    return /android|iphone|ipad|ipod/i.test(
+      navigator.userAgent || navigator.vendor
+    );
+  }
+
+  // Apply class for mobile browsers
+  const sec4 = document.getElementById("sec4");
+  if (isMobileBrowser()) {
+    sec4.classList.add("mobile");
+  }
+
+  // Only run animations if not in app browser or mobile
+  if (!isMobileBrowser()) {
+    gsap.fromTo(
+      ".sec4__text",
+      { opacity: 0, translateY: 200, duration: 0.5 }, // Initial styles
+      {
+        opacity: 1, // Final styles
+        translateY: -100,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#sec4",
+          start: "center center",
+          end: "bottom+=40% center",
+          pin: true,
+          pinSpacing: true,
+          scrub: true,
+          markers: false,
+        },
+      }
+    );
+  }
 </script>

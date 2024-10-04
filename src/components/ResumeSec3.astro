@@ -15,6 +15,21 @@
     ); /*  50px → 110px */
     line-height: 1.22;
   }
+  /* Styles for app browsers */
+  .sec3.mobile {
+    display: grid;
+    grid: auto/ auto;
+    place-content: center;
+    height: 100svh;
+    position: relative;
+    padding-top: 3em;
+    font-size: clamp(
+      2.625rem,
+      1.4455rem + 5.8974vw,
+      5.5rem
+    ); /*  50px → 110px */
+    line-height: 1.22;
+  }
 </style>
 
 <div class="font sec3" id="sec3">
@@ -27,6 +42,65 @@
 </div>
 
 <script>
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Function to detect app browsers
+  function isMobileBrowser() {
+    return /android|iphone|ipad|ipod/i.test(
+      navigator.userAgent || navigator.vendor
+    );
+  }
+
+  // Apply class for mobile browsers
+  const sec3 = document.getElementById("sec3");
+  if (isMobileBrowser()) {
+    sec3.classList.add("mobile");
+  }
+
+  // Only run animations if not on mobile
+  if (!isMobileBrowser()) {
+    //////// Phase one of scrolling, big text
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".sec3",
+        start: "top center",
+        endTrigger: ".sec2",
+        end: "center+=100% center",
+        scrub: true,
+        pin: true,
+        pinSpacing: true,
+        markers: false,
+      },
+    });
+
+    tl.fromTo(
+      "#sec3",
+      { opacity: 0, y: 200, scale: 0.5 },
+      { opacity: 1, y: 0, scale: 1, duration: 2 }
+    );
+
+    /////// Phase two of scrolling, this animates the <em> inside the span
+    let tlPhase2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".sec3",
+        start: "top+=45% center",
+        end: "bottom center",
+        scrub: true,
+      },
+    });
+
+    tlPhase2
+      .fromTo(
+        ".beautiful",
+        { color: "var(--dark)" },
+        { color: "var(--accent)", duration: 0.5 }
+      )
+      .to(".sustainable", { color: "var(--accent)", duration: 0.5 }, "<+=0.3")
+      .to(".fun", { color: "var(--accent)", duration: 0.5 }, "<+=0.3");
+  }
+</script>
+<!-- <script>
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
@@ -79,4 +153,4 @@
       { color: "var(--accent)", duration: 0.5 },
       "<+=0.3" // Starts 0.3 seconds after the previous animation
     );
-</script>
+</script> -->

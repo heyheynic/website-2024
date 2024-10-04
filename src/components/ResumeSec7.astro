@@ -31,7 +31,6 @@ import ContactForm from "./ContactForm.astro";
     margin: clamp(0.5625rem, 0.3rem + 1.12vw, 1rem) 0;
     padding: 1em 1.5em;
 
-    
     display: grid;
     grid: auto 1fr auto/ 1fr;
     justify-content: center;
@@ -41,7 +40,8 @@ import ContactForm from "./ContactForm.astro";
   h2 {
     text-align: center;
     position: relative;
-    margin: clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem) 0 clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem);
+    margin: clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem) 0
+      clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem);
 
     &::after {
       content: "";
@@ -55,7 +55,8 @@ import ContactForm from "./ContactForm.astro";
   }
 
   .links {
-    padding: clamp(0.5625rem, 0.3rem + 1.12vw, 1rem) 0 clamp(2rem, 0.8rem + 5.12vw, 4rem);
+    padding: clamp(0.5625rem, 0.3rem + 1.12vw, 1rem) 0
+      clamp(2rem, 0.8rem + 5.12vw, 4rem);
     place-self: center;
 
     a {
@@ -65,42 +66,46 @@ import ContactForm from "./ContactForm.astro";
       text-underline-offset: 0.4ex;
 
       &:hover {
-
         color: var(--accent);
         font-style: italic;
-      text-decoration-thickness: 0.3ex;
-
-
+        text-decoration-thickness: 0.3ex;
       }
     }
   }
 </style>
 
 <script>
-        // box-shadow: 5px 5px var(--dark);
-
-        import { ScrollTrigger } from "gsap/ScrollTrigger";
+ import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
+  // Function to detect app browsers
+  function isMobileBrowser() {
+    return /android|iphone|ipad|ipod/i.test(
+      navigator.userAgent || navigator.vendor
+    );
+  }
+
+  // Apply class for mobile browsers
+  const sec7 = document.getElementById("sec7");
+  if (isMobileBrowser()) {
+    sec7.classList.add("mobile");
+  }
+
+  // Only run animations if not on mobile
+  if (!isMobileBrowser()) {
   //////// Phase one of scrolling, big text
   let tl = gsap.timeline({
-    
     scrollTrigger: {
       trigger: ".sec7",
       start: "start center",
-   
+
       end: "center center",
       scrub: true,
 
-     
       // markers: true,
     },
   });
 
-  tl.to(
-  ".sec7",
-  { boxShadow: "10px 10px var(--dark)"}
-);
-
+  tl.to(".sec7", { boxShadow: "10px 10px var(--dark)" });
+}
 </script>
-
