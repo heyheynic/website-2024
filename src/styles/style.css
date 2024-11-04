@@ -28,7 +28,42 @@
   --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --serif: Georgia, "Times New Roman", Times, serif;
+
+  /* flow space*/
+
+  /* Space 3xs: 5px → 5px */
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  /* Space 2xs: 9px → 10px */
+  --space-2xs: clamp(0.5625rem, 0.5302rem + 0.1379vw, 0.625rem);
+  /* Space xs: 14px → 15px */
+  --space-xs: clamp(0.875rem, 0.8427rem + 0.1379vw, 0.9375rem);
+  /* Space s: 18px → 20px */
+  --space-s: clamp(1.125rem, 1.0603rem + 0.2759vw, 1.25rem);
+  /* Space m: 27px → 30px */
+  --space-m: clamp(1.6875rem, 1.5905rem + 0.4138vw, 1.875rem);
+  /* Space l: 36px → 40px */
+  --space-l: clamp(2.25rem, 2.1207rem + 0.5517vw, 2.5rem);
+  /* Space xl: 54px → 60px */
+  --space-xl: clamp(3.375rem, 3.181rem + 0.8276vw, 3.75rem);
+  /* Space 2xl: 72px → 80px */
+  --space-2xl: clamp(4.5rem, 4.2414rem + 1.1034vw, 5rem);
+  /* Space 3xl: 108px → 120px */
+  --space-3xl: clamp(6.75rem, 6.3621rem + 1.6552vw, 7.5rem);
+
+
+
 }
+
+
+
+
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+
+
 
 body {
   background: var(--light);
