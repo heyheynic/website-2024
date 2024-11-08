@@ -1,8 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import PrimaryBtn from "./PrimaryBtn.astro";
 
-const { img, altText, cardTitle, cardDesc } = Astro.props;
+const { img, altText, cardTitle, cardDesc, ariaLabel, src, btnText } =
+  Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/resume/*.{jpeg,jpg,png,gif,webp}"
@@ -25,6 +27,10 @@ if (!images[`/src/assets/resume/${img}`]) {
       {cardDesc}
     </p>
   </div>
+  
+  <div class="btn">
+    <PrimaryBtn btnText={btnText} src={src} ariaLabel={ariaLabel} />
+  </div>
 </div>
 
 <style>
@@ -37,7 +43,8 @@ if (!images[`/src/assets/resume/${img}`]) {
     overflow: hidden;
 
     &:before {
-      content: "";
+      content: "
+    ";
       position: absolute;
       top: 0;
       left: 0;
@@ -49,7 +56,6 @@ if (!images[`/src/assets/resume/${img}`]) {
       opacity: 0;
       transition: 0.5s;
     }
-
     img {
       width: 100%;
       height: 110%;
@@ -61,7 +67,6 @@ if (!images[`/src/assets/resume/${img}`]) {
       transition: height 0.3s ease-out;
     }
   }
-
   @media (hover: hover) {
     .card {
       &:hover {
@@ -79,9 +84,8 @@ if (!images[`/src/assets/resume/${img}`]) {
       }
     }
   }
-
-  /* removes hover effect on touch */
-  @media (hover: none) {
+  * removes hover effect on touch * @media (hover:
+    none) {
     .card {
       &:before {
         opacity: 0.65;
@@ -104,8 +108,11 @@ if (!images[`/src/assets/resume/${img}`]) {
     transition: 0.5s;
     padding: 0 1em 1em;
   }
-
   h3 {
     text-align: center;
+  }
+
+  .btn {
+    z-index: 3;
   }
 </style>
