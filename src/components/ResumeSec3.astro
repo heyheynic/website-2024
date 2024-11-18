@@ -57,6 +57,7 @@
   const sec3 = document.getElementById("sec3");
   if (isMobileBrowser()) {
     sec3.classList.add("mobile");
+    sec3.style.opacity = "1";
   }
 
   // Only run animations if not on mobile
@@ -72,7 +73,6 @@
         pin: true,
         pinSpacing: true,
         markers: false,
-
       },
     });
 

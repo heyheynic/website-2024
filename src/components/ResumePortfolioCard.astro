@@ -41,10 +41,10 @@ if (!images[`/src/assets/resume/${img}`]) {
 
 <style>
   .card {
-    display: flex; /* Enables flexbox */
-    flex-direction: column; /* Default direction for stacking */
-    justify-content: center; /* Centers children vertically */
-    align-items: center; /* Centers children horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     height: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
     width: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
@@ -98,8 +98,12 @@ if (!images[`/src/assets/resume/${img}`]) {
       opacity 0.5s,
       transform 0.5s;
 
+    h3 {
+      padding: var(--space-xs);
+    }
+
     > * + * {
-      padding: var(--space-s);
+      padding: var(--space-m);
     }
   }
 
@@ -120,110 +124,18 @@ if (!images[`/src/assets/resume/${img}`]) {
     }
   }
 
+  /* Disable hover effects on touch devices */
   @media (hover: none) {
-    .text {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
-
-<!-- <style>
-  .card {
-    /* 375px 300px → 1000px 420px */
-    height: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
-    width: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
-    position: relative;
-    color: white;
-    overflow: hidden;
-    cursor: pointer;
-
-    &:before {
-      content: " ";
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: black;
-      z-index: 1;
-      opacity: 0;
-      transition: 0.5s;
-    }
-
-    a {
-      text-decoration: none;
-
-      :active {
-        text-decoration: dotted;
-        text: red;
-      }
-    }
-    img {
-      width: 100%;
-      height: 110%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      transition: height 0.3s ease-out;
-    }
-  }
-  @media (hover: hover) {
-    .card {
-      &:hover {
-        &:before {
-          opacity: 0.6;
-        }
-        img {
-          height: 100%;
-          transition: height 0.5s ease-out;
-        }
-
-        .text {
-          opacity: 1;
-          transform: translateY(15%);
-        }
-      }
-    }
-  }
-  * removes hover effect on touch * @media (hover:
-    none) {
     .card {
       &:before {
-        opacity: 0.65;
+        opacity: 0.7;
       }
       img {
         height: 100%;
-        transition: height 0.5s ease-out;
       }
       .text {
         opacity: 1;
-        transform: translateY(5rem);
       }
     }
   }
-  .text {
-    position: relative;
-    z-index: 3;
-    opacity: 1;
-    transform: translateY(30rem);
-    transition: 0.5s;
-    padding: 0 1em 1em;
-    max-width: 60ch;
-    margin: auto;
-    > * + * {
-      padding: var(--space-s);
-    }
-  }
-  h3 {
-    text-align: center;
-  }
-
-  .btn {
-    z-index: 99;
-    background-color: red;
-  } -->
-<!-- </style> -->
+</style>
