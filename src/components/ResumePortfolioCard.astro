@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import PrimaryBtn from "./PrimaryBtn.astro";
 
-const { img, altText, cardTitle, cardDesc, ariaLabel, src, btnText } =
+const { img, altText, cardTitle, cardDesc, ariaLabel, src, btnText, linkSrc } =
   Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -16,35 +16,44 @@ if (!images[`/src/assets/resume/${img}`]) {
 ---
 
 <div class="card">
-  <Image
-    src={images[`/src/assets/resume/${img}`]()}
-    alt={altText}
-    format="avif"
-  />
-  <div class="text">
-    <h3>{cardTitle}</h3>
-    <p>
-      {cardDesc}
-    </p>
-  </div>
-  
-  <!-- <div class="btn">
-    <PrimaryBtn btnText={btnText} src={src} ariaLabel={ariaLabel} />
-  </div> -->
+  <a href={linkSrc} target="_blank">
+    <Image
+      src={images[`/src/assets/resume/${img}`]()}
+      alt={altText}
+      format="avif"
+    />
+    <div class="text">
+      <h3>{cardTitle}</h3>
+      <p>
+        {cardDesc}
+      </p>
+      <div class="btn">
+        <PrimaryBtn
+          btnText={btnText}
+          ariaLabel={ariaLabel}
+          src={linkSrc}
+          theme="external"
+        />
+      </div>
+    </div>
+  </a>
 </div>
 
 <style>
   .card {
-    /* 375px 300px → 1000px 420px */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Default direction for stacking */
+    justify-content: center; /* Centers children vertically */
+    align-items: center; /* Centers children horizontally */
+    position: relative;
     height: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
     width: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
-    position: relative;
     color: white;
     overflow: hidden;
+    cursor: pointer;
 
     &:before {
-      content: "
-    ";
+      content: " ";
       position: absolute;
       top: 0;
       left: 0;
@@ -55,6 +64,101 @@ if (!images[`/src/assets/resume/${img}`]) {
       z-index: 1;
       opacity: 0;
       transition: 0.5s;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      height: 110%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      transition: height 0.3s ease-out;
+    }
+  }
+
+  .text {
+    position: absolute; /* Ensure it stays inside the card */
+    top: 50%; /* Start centering vertically */
+    left: 50%; /* Start centering horizontally */
+    transform: translate(-50%, -50%); /* Perfect centering using transform */
+    z-index: 3;
+    opacity: 0; /* Hidden by default */
+    text-align: center;
+    padding: 0 1em 1em;
+    width: 100%;
+    max-width: 60ch;
+    margin: auto;
+    transition:
+      opacity 0.5s,
+      transform 0.5s;
+
+    > * + * {
+      padding: var(--space-s);
+    }
+  }
+
+  @media (hover: hover) {
+    .card:hover {
+      &:before {
+        opacity: 0.6;
+      }
+      img {
+        height: 100%;
+        transition: height 0.5s ease-out;
+      }
+
+      .text {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  @media (hover: none) {
+    .text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<!-- <style>
+  .card {
+    /* 375px 300px → 1000px 420px */
+    height: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
+    width: clamp(18.75rem, 14.25rem + 19.2vw, 26.25rem);
+    position: relative;
+    color: white;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: 1;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    a {
+      text-decoration: none;
+
+      :active {
+        text-decoration: dotted;
+        text: red;
+      }
     }
     img {
       width: 100%;
@@ -77,9 +181,10 @@ if (!images[`/src/assets/resume/${img}`]) {
           height: 100%;
           transition: height 0.5s ease-out;
         }
+
         .text {
           opacity: 1;
-          transform: translateY(5rem);
+          transform: translateY(15%);
         }
       }
     }
@@ -107,12 +212,18 @@ if (!images[`/src/assets/resume/${img}`]) {
     transform: translateY(30rem);
     transition: 0.5s;
     padding: 0 1em 1em;
+    max-width: 60ch;
+    margin: auto;
+    > * + * {
+      padding: var(--space-s);
+    }
   }
   h3 {
     text-align: center;
   }
 
   .btn {
-    z-index: 3;
-  }
-</style>
+    z-index: 99;
+    background-color: red;
+  } -->
+<!-- </style> -->

@@ -1,8 +1,14 @@
 ---
-const { btnText, src, ariaLabel } = Astro.props;
+const { btnText, src, ariaLabel, theme = "local" } = Astro.props;
 ---
 
-<a href=`${src}` aria-label={ariaLabel}>{btnText}</a>
+<a
+  href=`${src}`
+  aria-label={ariaLabel}
+  class={theme === "external" ? "btn-external" : "btn-local"}
+  target={theme === "external" ? "_blank" : "_self"}
+  rel={theme === "external" ? "noopener noreferrer" : undefined}>{btnText}</a
+>
 
 <style>
   a {

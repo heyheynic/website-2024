@@ -4,24 +4,25 @@ const comfortList = [
   "CSS",
   "JavaScript",
   "Astro.js",
+  "Next.js",
+  "Tailwind",
   "Photoshop",
   "Illustrator",
   "Figma",
   "Procreate",
   "Responsive design",
-  "Sustainability",
 ];
 
 const experienceList = [
   "Wordpress",
+  "SEO",
+  "Lighthouse",
   "GSAP",
+  "Sass",
+  "Vue.js",
   "After Effects",
   "InDesign",
   "Premier pro",
-  "Next.js",
-  "Vue.js",
-  "Lighthouse",
-  "Sass",
 ];
 ---
 
@@ -39,7 +40,8 @@ const experienceList = [
     grid-column: 1/-1;
     text-align: center;
     position: relative;
-    margin: clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem) 0 clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem);
+    margin: clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem) 0
+      clamp(1.5rem, 1.05rem + 1.92vw, 2.25rem);
 
     &::after {
       content: "";
@@ -59,7 +61,8 @@ const experienceList = [
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2em;
     align-self: center;
-    padding: clamp(2rem, 1.4rem + 2.56vw, 3rem) 0 clamp(2rem, 1.4rem + 2.56vw, 3rem);
+    padding: clamp(2rem, 1.4rem + 2.56vw, 3rem) 0
+      clamp(2rem, 1.4rem + 2.56vw, 3rem);
 
     li {
       list-style: disc;
@@ -88,7 +91,6 @@ const experienceList = [
     }
   }
 </style>
-
 
 <div class="wrapper sec5">
   <h2>Toolbox</h2>
@@ -157,12 +159,10 @@ const experienceList = [
 </div>
 
 <script>
+  // import { ScrollTrigger } from "gsap/ScrollTrigger";
+  //   gsap.registerPlugin(ScrollTrigger);
 
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-//   gsap.registerPlugin(ScrollTrigger);
-
-
-  // gsap.fromTo(".sec5", 
+  // gsap.fromTo(".sec5",
   // {   duration: 0.5, backgroundColor: "var(--dark)"},  // Initial styles
   //     {
   //    padding: "30em 0 0",
@@ -177,5 +177,4 @@ const experienceList = [
   //         markers: true          // Set to false in production
   //       }
   //   });
-
 </script>
